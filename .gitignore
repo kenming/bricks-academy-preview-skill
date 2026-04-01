@@ -1,0 +1,23 @@
+# macOS / editor noise
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local logs / temp files
+*.log
+*.tmp
+*.swp
+*.swo

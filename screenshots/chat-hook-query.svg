@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="420" viewBox="0 0 1400 420">
+<rect width="100%" height="100%" fill="#0f172a"/>
+<text x="24" y="36" fill="#f8fafc" font-family="DejaVu Sans Mono, monospace" font-size="22" font-weight="700">Explicit Invocation Example</text>
+<rect x="1140" y="16" rx="10" ry="10" width="236" height="34" fill="#1d4ed8"/>
+<text x="1162" y="38" fill="#eff6ff" font-family="DejaVu Sans Mono, monospace" font-size="16" font-weight="700">EXPLICIT INVOCATION</text>
+<rect x="24" y="64" rx="14" ry="14" width="1352" height="52" fill="#1d4ed8"/>
+<text x="42" y="96" fill="#eff6ff" font-family="DejaVu Sans Mono, monospace" font-size="18">User: $bricks-academy-preview Find the docs for bricks/query/before_loop and answer briefly.</text>
+<rect x="24" y="136" rx="12" ry="12" width="1352" height="88" fill="#111827" stroke="#334155"/>
+<text x="40" y="162" fill="#93c5fd" font-family="DejaVu Sans Mono, monospace" font-size="16">$ search_corpus.py 'bricks/query/before_loop' --kind hook --limit 5</text>
+<text x="42" y="190" fill="#d1d5db" font-family="DejaVu Sans Mono, monospace" font-size="16">01. Action: bricks/query/before_loop | hook | developer/hooks</text>
+<text x="42" y="216" fill="#d1d5db" font-family="DejaVu Sans Mono, monospace" font-size="16">02. Filter: bricks/render_query_loop_trail | hook | developer/hooks</text>
+<rect x="24" y="244" rx="14" ry="14" width="1352" height="132" fill="#1f2937"/>
+<text x="42" y="272" fill="#e5e7eb" font-family="DejaVu Sans Mono, monospace" font-size="18">Assistant: The top local match is Action: bricks/query/before_loop.</text>
+<text x="42" y="298" fill="#e5e7eb" font-family="DejaVu Sans Mono, monospace" font-size="18">It runs before a query loop starts and is useful when you need</text>
+<text x="42" y="324" fill="#e5e7eb" font-family="DejaVu Sans Mono, monospace" font-size="18">to set or reset data before the loop executes.</text>
+<text x="42" y="350" fill="#e5e7eb" font-family="DejaVu Sans Mono, monospace" font-size="18">The docs example shows add_action('bricks/query/before_loop', ...).</text>
+</svg>
