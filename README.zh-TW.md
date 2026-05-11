@@ -48,12 +48,32 @@ bricks-academy-preview-skill/
 
 手動安裝時，應該複製內層的 `skills/bricks-academy-preview/` 到你的 agent 會掃描的 skill 目錄。
 
-常見位置：
+常見 skill 位置：
 
-- 專案層級：`.agents/skills/`
-- 使用者層級：`~/.agents/skills/`
+- Codex/Copilot 使用者層級：`~/.agents/skills/`
+- Codex/Copilot 專案層級：`.agents/skills/`
+- Claude Code 使用者層級：`~/.claude/skills/`
+- Claude Code 專案層級：`.claude/skills/`
+- 其他 AI agents：請查閱該 agent 關於 skill 儲存位置的官方或專案文件。
 
-### 方式 1：安裝到單一專案
+### 方式 1：安裝到 Codex/Copilot 使用者層級
+
+```bash
+git clone https://github.com/<your-account>/bricks-academy-preview-skill.git /tmp/bricks-academy-preview-skill
+mkdir -p ~/.agents/skills
+cp -R /tmp/bricks-academy-preview-skill/skills/bricks-academy-preview ~/.agents/skills/
+rm -rf /tmp/bricks-academy-preview-skill
+```
+
+結果：
+
+```text
+~/.agents/skills/
+└── bricks-academy-preview/
+    └── SKILL.md
+```
+
+### 方式 2：安裝到 Codex/Copilot 專案層級
 
 ```bash
 git clone https://github.com/<your-account>/bricks-academy-preview-skill.git /tmp/bricks-academy-preview-skill
@@ -70,22 +90,8 @@ rm -rf /tmp/bricks-academy-preview-skill
     └── SKILL.md
 ```
 
-### 方式 2：安裝到使用者層級
-
-```bash
-git clone https://github.com/<your-account>/bricks-academy-preview-skill.git /tmp/bricks-academy-preview-skill
-mkdir -p ~/.agents/skills
-cp -R /tmp/bricks-academy-preview-skill/skills/bricks-academy-preview ~/.agents/skills/
-rm -rf /tmp/bricks-academy-preview-skill
-```
-
-結果：
-
-```text
-~/.agents/skills/
-└── bricks-academy-preview/
-    └── SKILL.md
-```
+若使用 Claude Code，請用相同複製方式，將目的地改為 `~/.claude/skills/`
+或 `.claude/skills/`。
 
 ### 安裝後確認
 
@@ -166,11 +172,24 @@ python3 skills/bricks-academy-preview/scripts/show_doc.py "new:developer/hooks/a
 bash skills/bricks-academy-preview/scripts/run_preview_sync.sh
 ```
 
+不下載完整 corpus，輕量檢查官方 preview 文件是否更新：
+
+```bash
+python3 skills/bricks-academy-preview/scripts/check_preview_updates.py
+```
+
+完成可信任的完整同步後，更新輕量檢查用的遠端 ETag baseline：
+
+```bash
+python3 skills/bricks-academy-preview/scripts/check_preview_updates.py --update-cache
+```
+
 ## 說明
 
 - 這個 repo 追蹤的是 preview 文件，不是正式穩定版文件。
 - 上游的文件結構與內容未來很可能持續調整。
 - 這份 skill 的設計原則是先查本地 corpus，再視需要回退到線上網站。
+- 版本變更紀錄請見 `CHANGELOG.md`。
 
 ## 授權
 

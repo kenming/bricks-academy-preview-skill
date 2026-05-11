@@ -50,12 +50,34 @@ bricks-academy-preview-skill/
 
 When installing manually, copy the inner `skills/bricks-academy-preview/` folder to a location your agent scans for skills.
 
-Common locations:
+Common skill locations:
 
-- Project-level: `.agents/skills/`
-- User-level: `~/.agents/skills/`
+- Codex/Copilot user-level: `~/.agents/skills/`
+- Codex/Copilot project-level: `.agents/skills/`
+- Claude Code user-level: `~/.claude/skills/`
+- Claude Code project-level: `.claude/skills/`
+- Other AI agents: check that agent's skill documentation for its supported global and project-level skill directories.
 
-### Option 1: Project-Level Installation
+### Option 1: Codex/Copilot User-Level Installation
+
+Install the skill globally for Codex/Copilot-style agents:
+
+```bash
+git clone https://github.com/<your-account>/bricks-academy-preview-skill.git /tmp/bricks-academy-preview-skill
+mkdir -p ~/.agents/skills
+cp -R /tmp/bricks-academy-preview-skill/skills/bricks-academy-preview ~/.agents/skills/
+rm -rf /tmp/bricks-academy-preview-skill
+```
+
+Result:
+
+```text
+~/.agents/skills/
+└── bricks-academy-preview/
+    └── SKILL.md
+```
+
+### Option 2: Codex/Copilot Project-Level Installation
 
 Install the skill only for one project:
 
@@ -74,24 +96,8 @@ Result:
     └── SKILL.md
 ```
 
-### Option 2: User-Level Installation
-
-Install the skill globally for your user account:
-
-```bash
-git clone https://github.com/<your-account>/bricks-academy-preview-skill.git /tmp/bricks-academy-preview-skill
-mkdir -p ~/.agents/skills
-cp -R /tmp/bricks-academy-preview-skill/skills/bricks-academy-preview ~/.agents/skills/
-rm -rf /tmp/bricks-academy-preview-skill
-```
-
-Result:
-
-```text
-~/.agents/skills/
-└── bricks-academy-preview/
-    └── SKILL.md
-```
+For Claude Code, use the same copy command pattern with `~/.claude/skills/`
+or `.claude/skills/` as the destination.
 
 ### Verify Installation
 
@@ -169,6 +175,19 @@ Refresh the preview corpus:
 bash skills/bricks-academy-preview/scripts/run_preview_sync.sh
 ```
 
+Check whether the official preview docs changed without downloading the full
+corpus:
+
+```bash
+python3 skills/bricks-academy-preview/scripts/check_preview_updates.py
+```
+
+After a trusted full sync, refresh the lightweight remote ETag baseline:
+
+```bash
+python3 skills/bricks-academy-preview/scripts/check_preview_updates.py --update-cache
+```
+
 ## Notes
 
 - This repository tracks the preview docs, not a final stable Bricks Academy release.
@@ -179,6 +198,7 @@ bash skills/bricks-academy-preview/scripts/run_preview_sync.sh
 
 - English: `README.md`
 - Traditional Chinese: `README.zh-TW.md`
+- Changelog: `CHANGELOG.md`
 
 ## License
 

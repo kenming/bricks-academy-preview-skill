@@ -15,6 +15,26 @@ Use this workflow when the Bricks Academy preview site changes and the local cor
    - `scripts/search_corpus.py "bricks/query/before_loop"`
    - `scripts/show_doc.py <doc_id>`
 
+## Lightweight Update Check
+
+Use this before a full sync when you only need to know whether the official
+preview Markdown pages changed.
+
+1. Run:
+   `scripts/check_preview_updates.py`
+2. If it reports
+   `changed=0 unknown=0 removed=0 new_paths=0 missing_paths=0 errors=0`,
+   the official Markdown content matches the cached remote ETag baseline.
+3. If it reports changed or removed docs, run the standard sync and inspect the
+   resulting git diff.
+
+After a trusted full sync, refresh the lightweight baseline with:
+
+`scripts/check_preview_updates.py --update-cache`
+
+This check sends HEAD requests to the official `.md` endpoints. It does not
+download full Markdown bodies or image assets.
+
 ## What Changes
 
 - `index/preview_manifest.csv`
