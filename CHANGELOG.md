@@ -6,6 +6,12 @@
 
 - Renamed the GitHub repository from `bricks-academy-preview-skill` to
   `bricks-academy-skill` and updated the installation examples.
+- Migrated the Agent Skill from the retired Bricks Academy preview domain to
+  the official `academy.bricksbuilder.io` documentation.
+- Renamed the skill to `bricks-academy` and aligned its corpus, index, sync
+  scripts, references, screenshots, and installation paths.
+- Refreshed the Academy snapshot to `764` documents, `614` local images, and
+  `51` external embeds.
 
 ## v0.1.1
 

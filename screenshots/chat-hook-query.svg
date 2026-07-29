@@ -4,7 +4,7 @@
 <rect x="1140" y="16" rx="10" ry="10" width="236" height="34" fill="#1d4ed8"/>
 <text x="1162" y="38" fill="#eff6ff" font-family="DejaVu Sans Mono, monospace" font-size="16" font-weight="700">EXPLICIT INVOCATION</text>
 <rect x="24" y="64" rx="14" ry="14" width="1352" height="52" fill="#1d4ed8"/>
-<text x="42" y="96" fill="#eff6ff" font-family="DejaVu Sans Mono, monospace" font-size="18">User: $bricks-academy-preview Find the docs for bricks/query/before_loop and answer briefly.</text>
+<text x="42" y="96" fill="#eff6ff" font-family="DejaVu Sans Mono, monospace" font-size="18">User: &#36;bricks-academy Find the docs for bricks/query/before_loop and answer briefly.</text>
 <rect x="24" y="136" rx="12" ry="12" width="1352" height="88" fill="#111827" stroke="#334155"/>
 <text x="40" y="162" fill="#93c5fd" font-family="DejaVu Sans Mono, monospace" font-size="16">$ search_corpus.py 'bricks/query/before_loop' --kind hook --limit 5</text>
 <text x="42" y="190" fill="#d1d5db" font-family="DejaVu Sans Mono, monospace" font-size="16">01. Action: bricks/query/before_loop | hook | developer/hooks</text>

@@ -1,0 +1,2 @@
+# Preserve the generated upstream documentation corpus byte-for-byte.
+skills/bricks-academy/corpus/** -whitespace

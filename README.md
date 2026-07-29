@@ -1,21 +1,23 @@
-# Bricks Academy Preview Skill
+# Bricks Academy Skill
 
-A local-first Agent Skill repository for querying the Bricks Academy preview documentation.
+A local-first Agent Skill repository for querying the official Bricks Academy documentation.
 
-This repository packages a maintained mirror of the preview docs published at `academy-preview.bricksbuilder.io` and exposes it as a skill under `skills/bricks-academy-preview/`.
+This repository packages a maintained mirror of the docs published at
+`https://academy.bricksbuilder.io/` and exposes it as a skill under
+`skills/bricks-academy/`.
 
 ## What This Repository Contains
 
-- A Bricks Academy preview corpus mirrored to local Markdown
+- A Bricks Academy corpus mirrored to local Markdown
 - Downloaded local image assets referenced by the docs
 - Search and lookup scripts for querying the corpus
-- Sync scripts for refreshing the corpus when the preview site changes
+- Sync scripts for refreshing the corpus when the official Academy site changes
 - A skill definition compatible with the Agent Skills open specification
 
 ## Repository Layout
 
 ```text
-skills/bricks-academy-preview/
+skills/bricks-academy/
 ├── SKILL.md
 ├── corpus/
 ├── index/
@@ -25,17 +27,18 @@ skills/bricks-academy-preview/
 
 Key paths:
 
-- Skill entry: `skills/bricks-academy-preview/SKILL.md`
-- Local corpus: `skills/bricks-academy-preview/corpus/bricks-academy-preview/`
-- Search index: `skills/bricks-academy-preview/index/preview_corpus_manifest.csv`
+- Skill entry: `skills/bricks-academy/SKILL.md`
+- Local corpus: `skills/bricks-academy/corpus/bricks-academy/`
+- Search index: `skills/bricks-academy/index/academy_corpus_manifest.csv`
 
 ## Current Corpus Snapshot
 
-- `691` synced documentation pages
-- `569` downloaded local images
-- `34` external embeds preserved as links
+- `764` synced documentation pages
+- `614` downloaded local images
+- `51` external embeds preserved as links
 
-These numbers reflect the current preview snapshot in this repository and may change as the upstream preview site evolves.
+These numbers reflect the current Academy snapshot in this repository and may
+change as the official documentation evolves.
 
 ## Installation
 
@@ -44,11 +47,11 @@ This repository is structured as a skill repository with a nested `skills/` dire
 ```text
 bricks-academy-skill/
 └── skills/
-    └── bricks-academy-preview/
+    └── bricks-academy/
         └── SKILL.md
 ```
 
-When installing manually, copy the inner `skills/bricks-academy-preview/` folder to a location your agent scans for skills.
+When installing manually, copy the inner `skills/bricks-academy/` folder to a location your agent scans for skills.
 
 Common skill locations:
 
@@ -65,7 +68,7 @@ Install the skill globally for Codex/Copilot-style agents:
 ```bash
 git clone https://github.com/kenming/bricks-academy-skill.git /tmp/bricks-academy-skill
 mkdir -p ~/.agents/skills
-cp -R /tmp/bricks-academy-skill/skills/bricks-academy-preview ~/.agents/skills/
+cp -R /tmp/bricks-academy-skill/skills/bricks-academy ~/.agents/skills/
 rm -rf /tmp/bricks-academy-skill
 ```
 
@@ -73,7 +76,7 @@ Result:
 
 ```text
 ~/.agents/skills/
-└── bricks-academy-preview/
+└── bricks-academy/
     └── SKILL.md
 ```
 
@@ -84,7 +87,7 @@ Install the skill only for one project:
 ```bash
 git clone https://github.com/kenming/bricks-academy-skill.git /tmp/bricks-academy-skill
 mkdir -p .agents/skills
-cp -R /tmp/bricks-academy-skill/skills/bricks-academy-preview .agents/skills/
+cp -R /tmp/bricks-academy-skill/skills/bricks-academy .agents/skills/
 rm -rf /tmp/bricks-academy-skill
 ```
 
@@ -92,7 +95,7 @@ Result:
 
 ```text
 .agents/skills/
-└── bricks-academy-preview/
+└── bricks-academy/
     └── SKILL.md
 ```
 
@@ -124,7 +127,7 @@ This skill supports both explicit and implicit invocation.
 Use the skill name directly when you want to force the agent to use this skill:
 
 ```text
-$bricks-academy-preview Find the docs for bricks/query/before_loop and answer briefly.
+$bricks-academy Find the docs for bricks/query/before_loop and answer briefly.
 ```
 
 This is useful when:
@@ -158,39 +161,40 @@ Examples:
 Search the corpus:
 
 ```bash
-python3 skills/bricks-academy-preview/scripts/search_corpus.py "query loop"
-python3 skills/bricks-academy-preview/scripts/search_corpus.py "bricks/query/before_loop" --kind hook
-python3 skills/bricks-academy-preview/scripts/search_corpus.py "theme styles" --section builder --subsection builder/styling --limit 5
+python3 skills/bricks-academy/scripts/search_corpus.py "query loop"
+python3 skills/bricks-academy/scripts/search_corpus.py "bricks/query/before_loop" --kind hook
+python3 skills/bricks-academy/scripts/search_corpus.py "theme styles" --section builder --subsection builder/styling --limit 5
 ```
 
 Open a document:
 
 ```bash
-python3 skills/bricks-academy-preview/scripts/show_doc.py "new:developer/hooks/actions/action-bricks-query-before_loop"
+python3 skills/bricks-academy/scripts/show_doc.py "new:developer/hooks/actions/action-bricks-query-before_loop"
 ```
 
-Refresh the preview corpus:
+Refresh the Academy corpus:
 
 ```bash
-bash skills/bricks-academy-preview/scripts/run_preview_sync.sh
+bash skills/bricks-academy/scripts/run_academy_sync.sh
 ```
 
-Check whether the official preview docs changed without downloading the full
+Check whether the official Academy docs changed without downloading the full
 corpus:
 
 ```bash
-python3 skills/bricks-academy-preview/scripts/check_preview_updates.py
+python3 skills/bricks-academy/scripts/check_academy_updates.py
 ```
 
 After a trusted full sync, refresh the lightweight remote ETag baseline:
 
 ```bash
-python3 skills/bricks-academy-preview/scripts/check_preview_updates.py --update-cache
+python3 skills/bricks-academy/scripts/check_academy_updates.py --update-cache
 ```
 
 ## Notes
 
-- This repository tracks the preview docs, not a final stable Bricks Academy release.
+- This repository tracks the official Bricks Academy documentation, which may
+  continue to evolve.
 - Structural and content changes are expected upstream.
 - The skill is designed to answer from the local corpus first and only fall back to live browsing when needed.
 

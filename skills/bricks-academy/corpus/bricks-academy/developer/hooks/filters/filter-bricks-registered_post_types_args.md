@@ -1,0 +1,24 @@
+---
+title: "Filter: bricks/registered_post_types_args"
+description: "Available since version 1.6, this filter allows you to customise the post type args that are used to query the post type as shown in the Bricks settings & the."
+canonical: "https://academy.bricksbuilder.io/developer/hooks/filters/filter-bricks-registered_post_types_args/"
+markdownUrl: "https://academy.bricksbuilder.io/developer/hooks/filters/filter-bricks-registered_post_types_args.md"
+pageType: "article"
+section: "developer"
+category: "hooks"
+lastmod: "2026-07-29T10:15:35.000Z"
+---
+Available since version 1.6, this filter allows you to customise the post type args that are used to query the post type as shown in the Bricks settings & the builder (e.g. Query control post types, etc.)
+
+```php
+add_filter( 'bricks/registered_post_types_args', function( $args ) {
+  // Default: Return only public post types
+  // $args['public'] = true;
+
+  // Custom: Return all registered post types
+  unset( $args['public'] );
+
+  // Available arguments: https://developer.wordpress.org/reference/functions/get_post_types/#comment-2184
+  return $args;
+} );
+```

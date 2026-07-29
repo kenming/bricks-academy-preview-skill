@@ -1,19 +1,19 @@
-# Bricks Academy Preview Skill
+# Bricks Academy Skill
 
-這是一個可公開發布的 Agent Skill repo，用來查詢 Bricks Academy preview 文件。
+這是一個可公開發布的 Agent Skill repo，用來查詢 Bricks Academy 官方文件。
 
 此 repo 包含：
 
-- `academy-preview.bricksbuilder.io` 的本地 Markdown 鏡像
+- `https://academy.bricksbuilder.io/` 的本地 Markdown 鏡像
 - 文件所引用的本地圖片資產
 - 查詢與開啟文檔的腳本
-- 重新同步 preview 文件的腳本
-- 一份放在 `skills/bricks-academy-preview/` 下的 skill 定義
+- 重新同步官方 Academy 文件的腳本
+- 一份放在 `skills/bricks-academy/` 下的 skill 定義
 
 ## 目錄重點
 
 ```text
-skills/bricks-academy-preview/
+skills/bricks-academy/
 ├── SKILL.md
 ├── corpus/
 ├── index/
@@ -23,17 +23,17 @@ skills/bricks-academy-preview/
 
 重要路徑：
 
-- Skill 入口：`skills/bricks-academy-preview/SKILL.md`
-- 本地 corpus：`skills/bricks-academy-preview/corpus/bricks-academy-preview/`
-- 搜尋索引：`skills/bricks-academy-preview/index/preview_corpus_manifest.csv`
+- Skill 入口：`skills/bricks-academy/SKILL.md`
+- 本地 corpus：`skills/bricks-academy/corpus/bricks-academy/`
+- 搜尋索引：`skills/bricks-academy/index/academy_corpus_manifest.csv`
 
 ## 目前快照
 
-- `691` 篇同步完成的文件
-- `569` 張已下載的本地圖片
-- `34` 個外部嵌入內容以連結方式保留
+- `764` 篇同步完成的文件
+- `614` 張已下載的本地圖片
+- `51` 個外部嵌入內容以連結方式保留
 
-以上數字會隨 preview 官方文件更新而變動。
+以上數字會隨 Academy 官方文件更新而變動。
 
 ## 安裝方式
 
@@ -42,11 +42,11 @@ skills/bricks-academy-preview/
 ```text
 bricks-academy-skill/
 └── skills/
-    └── bricks-academy-preview/
+    └── bricks-academy/
         └── SKILL.md
 ```
 
-手動安裝時，應該複製內層的 `skills/bricks-academy-preview/` 到你的 agent 會掃描的 skill 目錄。
+手動安裝時，應該複製內層的 `skills/bricks-academy/` 到你的 agent 會掃描的 skill 目錄。
 
 常見 skill 位置：
 
@@ -61,7 +61,7 @@ bricks-academy-skill/
 ```bash
 git clone https://github.com/kenming/bricks-academy-skill.git /tmp/bricks-academy-skill
 mkdir -p ~/.agents/skills
-cp -R /tmp/bricks-academy-skill/skills/bricks-academy-preview ~/.agents/skills/
+cp -R /tmp/bricks-academy-skill/skills/bricks-academy ~/.agents/skills/
 rm -rf /tmp/bricks-academy-skill
 ```
 
@@ -69,7 +69,7 @@ rm -rf /tmp/bricks-academy-skill
 
 ```text
 ~/.agents/skills/
-└── bricks-academy-preview/
+└── bricks-academy/
     └── SKILL.md
 ```
 
@@ -78,7 +78,7 @@ rm -rf /tmp/bricks-academy-skill
 ```bash
 git clone https://github.com/kenming/bricks-academy-skill.git /tmp/bricks-academy-skill
 mkdir -p .agents/skills
-cp -R /tmp/bricks-academy-skill/skills/bricks-academy-preview .agents/skills/
+cp -R /tmp/bricks-academy-skill/skills/bricks-academy .agents/skills/
 rm -rf /tmp/bricks-academy-skill
 ```
 
@@ -86,7 +86,7 @@ rm -rf /tmp/bricks-academy-skill
 
 ```text
 .agents/skills/
-└── bricks-academy-preview/
+└── bricks-academy/
     └── SKILL.md
 ```
 
@@ -118,7 +118,7 @@ rm -rf /tmp/bricks-academy-skill
 如果你想明確指定 agent 使用這份 skill，可以直接寫出 skill 名稱：
 
 ```text
-$bricks-academy-preview Find the docs for bricks/query/before_loop and answer briefly.
+$bricks-academy Find the docs for bricks/query/before_loop and answer briefly.
 ```
 
 這種方式適合：
@@ -155,38 +155,38 @@ What is the Container element used for in Bricks?
 搜尋：
 
 ```bash
-python3 skills/bricks-academy-preview/scripts/search_corpus.py "query loop"
-python3 skills/bricks-academy-preview/scripts/search_corpus.py "bricks/query/before_loop" --kind hook
-python3 skills/bricks-academy-preview/scripts/search_corpus.py "theme styles" --section builder --subsection builder/styling --limit 5
+python3 skills/bricks-academy/scripts/search_corpus.py "query loop"
+python3 skills/bricks-academy/scripts/search_corpus.py "bricks/query/before_loop" --kind hook
+python3 skills/bricks-academy/scripts/search_corpus.py "theme styles" --section builder --subsection builder/styling --limit 5
 ```
 
 開啟單篇文檔：
 
 ```bash
-python3 skills/bricks-academy-preview/scripts/show_doc.py "new:developer/hooks/actions/action-bricks-query-before_loop"
+python3 skills/bricks-academy/scripts/show_doc.py "new:developer/hooks/actions/action-bricks-query-before_loop"
 ```
 
-重新同步 preview 文件：
+重新同步 Academy 文件：
 
 ```bash
-bash skills/bricks-academy-preview/scripts/run_preview_sync.sh
+bash skills/bricks-academy/scripts/run_academy_sync.sh
 ```
 
-不下載完整 corpus，輕量檢查官方 preview 文件是否更新：
+不下載完整 corpus，輕量檢查官方 Academy 文件是否更新：
 
 ```bash
-python3 skills/bricks-academy-preview/scripts/check_preview_updates.py
+python3 skills/bricks-academy/scripts/check_academy_updates.py
 ```
 
 完成可信任的完整同步後，更新輕量檢查用的遠端 ETag baseline：
 
 ```bash
-python3 skills/bricks-academy-preview/scripts/check_preview_updates.py --update-cache
+python3 skills/bricks-academy/scripts/check_academy_updates.py --update-cache
 ```
 
 ## 說明
 
-- 這個 repo 追蹤的是 preview 文件，不是正式穩定版文件。
+- 這個 repo 追蹤的是 Bricks Academy 官方文件，內容仍可能持續調整。
 - 上游的文件結構與內容未來很可能持續調整。
 - 這份 skill 的設計原則是先查本地 corpus，再視需要回退到線上網站。
 - 版本變更紀錄請見 `CHANGELOG.md`。
