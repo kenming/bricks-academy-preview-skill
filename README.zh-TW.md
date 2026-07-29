@@ -40,7 +40,7 @@ skills/bricks-academy-preview/
 這個 repo 採用帶有 `skills/` 巢狀目錄的 skill repository 形式：
 
 ```text
-bricks-academy-preview-skill/
+bricks-academy-skill/
 └── skills/
     └── bricks-academy-preview/
         └── SKILL.md
@@ -59,10 +59,10 @@ bricks-academy-preview-skill/
 ### 方式 1：安裝到 Codex/Copilot 使用者層級
 
 ```bash
-git clone https://github.com/<your-account>/bricks-academy-preview-skill.git /tmp/bricks-academy-preview-skill
+git clone https://github.com/kenming/bricks-academy-skill.git /tmp/bricks-academy-skill
 mkdir -p ~/.agents/skills
-cp -R /tmp/bricks-academy-preview-skill/skills/bricks-academy-preview ~/.agents/skills/
-rm -rf /tmp/bricks-academy-preview-skill
+cp -R /tmp/bricks-academy-skill/skills/bricks-academy-preview ~/.agents/skills/
+rm -rf /tmp/bricks-academy-skill
 ```
 
 結果：
@@ -76,10 +76,10 @@ rm -rf /tmp/bricks-academy-preview-skill
 ### 方式 2：安裝到 Codex/Copilot 專案層級
 
 ```bash
-git clone https://github.com/<your-account>/bricks-academy-preview-skill.git /tmp/bricks-academy-preview-skill
+git clone https://github.com/kenming/bricks-academy-skill.git /tmp/bricks-academy-skill
 mkdir -p .agents/skills
-cp -R /tmp/bricks-academy-preview-skill/skills/bricks-academy-preview .agents/skills/
-rm -rf /tmp/bricks-academy-preview-skill
+cp -R /tmp/bricks-academy-skill/skills/bricks-academy-preview .agents/skills/
+rm -rf /tmp/bricks-academy-skill
 ```
 
 結果：
