@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+### Changed
+
+- Renamed the GitHub repository from `bricks-academy-preview-skill` to
+  `bricks-academy-skill` and updated the installation examples.
+
 ## v0.1.1
 
 Maintenance update for checking whether the official Bricks Academy preview

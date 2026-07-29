@@ -42,7 +42,7 @@ These numbers reflect the current preview snapshot in this repository and may ch
 This repository is structured as a skill repository with a nested `skills/` directory:
 
 ```text
-bricks-academy-preview-skill/
+bricks-academy-skill/
 └── skills/
     └── bricks-academy-preview/
         └── SKILL.md
@@ -63,10 +63,10 @@ Common skill locations:
 Install the skill globally for Codex/Copilot-style agents:
 
 ```bash
-git clone https://github.com/<your-account>/bricks-academy-preview-skill.git /tmp/bricks-academy-preview-skill
+git clone https://github.com/kenming/bricks-academy-skill.git /tmp/bricks-academy-skill
 mkdir -p ~/.agents/skills
-cp -R /tmp/bricks-academy-preview-skill/skills/bricks-academy-preview ~/.agents/skills/
-rm -rf /tmp/bricks-academy-preview-skill
+cp -R /tmp/bricks-academy-skill/skills/bricks-academy-preview ~/.agents/skills/
+rm -rf /tmp/bricks-academy-skill
 ```
 
 Result:
@@ -82,10 +82,10 @@ Result:
 Install the skill only for one project:
 
 ```bash
-git clone https://github.com/<your-account>/bricks-academy-preview-skill.git /tmp/bricks-academy-preview-skill
+git clone https://github.com/kenming/bricks-academy-skill.git /tmp/bricks-academy-skill
 mkdir -p .agents/skills
-cp -R /tmp/bricks-academy-preview-skill/skills/bricks-academy-preview .agents/skills/
-rm -rf /tmp/bricks-academy-preview-skill
+cp -R /tmp/bricks-academy-skill/skills/bricks-academy-preview .agents/skills/
+rm -rf /tmp/bricks-academy-skill
 ```
 
 Result:
