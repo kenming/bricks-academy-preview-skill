@@ -8,6 +8,10 @@
 2. 精簡、人工維護的開發工作流程；
 3. 當精確實作細節會影響結果時，對獲授權的實際 Bricks 安裝進行版本感知查驗。
 
+![Bricks Builder Skill 三層證據流程](screenshots/evidence-workflow.svg)
+
+Skill 會先查詢公開文件，只載入與任務相關的開發指引，並在提出版本敏感結論前查驗獲授權的實際安裝。
+
 此 Skill 不包含或重製 Bricks 商業 Theme 原始碼。
 
 ## Repository 結構
@@ -43,6 +47,12 @@ Academy corpus 與 index 是同步生成物。Development references 則刻意�
 
 以上數字會隨官方文件更新而變動。
 
+## 版本與相容性
+
+本 repository 依 installable Skill 的公開契約採用 Semantic Versioning。Skill 版號獨立於 Bricks 產品版本、WordPress 版本與 Academy snapshot 日期；只有更新實際改變公開行為、workflow 或隨附指引時，才依相容性調整 Skill 版號。
+
+版本敏感的實作細節仍必須對使用者獲授權的實際 Bricks 安裝查驗。Snapshot 與相容性紀錄見 [`CHANGELOG.md`](CHANGELOG.md)。
+
 ## 安裝
 
 Clone repository 後，將內層 `skills/bricks-builder/` 複製到 Agent 支援的 Skill 目錄。
@@ -50,7 +60,7 @@ Clone repository 後，將內層 `skills/bricks-builder/` 複製到 Agent 支援
 ### 使用者層級
 
 ```bash
-git clone https://github.com/kenming/bricks-academy-skill.git /tmp/bricks-builder-skill
+git clone https://github.com/kenming/bricks-builder-skill.git /tmp/bricks-builder-skill
 mkdir -p ~/.agents/skills
 cp -R /tmp/bricks-builder-skill/skills/bricks-builder ~/.agents/skills/
 ```
@@ -58,7 +68,7 @@ cp -R /tmp/bricks-builder-skill/skills/bricks-builder ~/.agents/skills/
 ### 專案層級
 
 ```bash
-git clone https://github.com/kenming/bricks-academy-skill.git /tmp/bricks-builder-skill
+git clone https://github.com/kenming/bricks-builder-skill.git /tmp/bricks-builder-skill
 mkdir -p .agents/skills
 cp -R /tmp/bricks-builder-skill/skills/bricks-builder .agents/skills/
 ```
@@ -66,6 +76,16 @@ cp -R /tmp/bricks-builder-skill/skills/bricks-builder .agents/skills/
 Claude Code 可使用相同方式，將目的地換成 `~/.claude/skills/` 或 `.claude/skills/`。
 
 可用 `$bricks-builder` 顯式觸發，或直接提出明確的 Bricks 文件或開發問題。
+
+## 觸發範例
+
+提出明確的 Bricks 問題，即可隱式觸發 Skill：
+
+![以 Bricks Container 問題隱式觸發](screenshots/chat-container-query.svg)
+
+需要查詢精確 hook、schema 或實作細節時，可用 `$bricks-builder` 明確觸發：
+
+![以 Bricks Query hook 明確觸發](screenshots/chat-hook-query.svg)
 
 ## 本地 corpus 工具
 

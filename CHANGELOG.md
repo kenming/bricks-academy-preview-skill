@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## v1.0.0 - 2026-08-06
+
 ### Added
 
 - Added a concise development-guidance layer for Bricks data models, element
@@ -17,6 +19,12 @@
 
 ### Changed
 
+- Renamed the GitHub repository from `bricks-academy-skill` to
+  `bricks-builder-skill` and updated installation URLs.
+- Established `bricks-builder-skill` as the single maintained public Skill
+  repository after retiring the separate legacy fork.
+- Reworked the README visuals around the current `bricks-builder` invocation
+  and three-layer evidence workflow, and removed outdated duplicate screenshots.
 - Expanded the skill from documentation lookup to Bricks-specific research,
   implementation, and audit workflows while retaining the synchronized Academy
   corpus as its official documentation layer.

@@ -8,6 +8,10 @@ It combines three evidence layers:
 2. concise, hand-maintained development workflows;
 3. version-aware verification against an authorized active Bricks installation when exact implementation details matter.
 
+![Bricks Builder Skill evidence workflow](screenshots/evidence-workflow.svg)
+
+The skill starts with public documentation, loads only the development guidance relevant to the task, and checks an authorized active installation before making version-sensitive claims.
+
 The skill does not bundle or reproduce the licensed Bricks theme source.
 
 ## Repository layout
@@ -43,6 +47,12 @@ The Academy corpus and index are generated synchronization products. Development
 
 These numbers change as the official documentation evolves.
 
+## Versioning and compatibility
+
+This repository follows Semantic Versioning for the installable Skill contract. Its version is independent of the Bricks product version, WordPress version, and Academy snapshot date. Bricks and Academy updates only change the Skill version when they change its published behavior, workflows, or bundled guidance.
+
+Version-sensitive implementation details must still be verified against the user's authorized active Bricks installation. See [`CHANGELOG.md`](CHANGELOG.md) for snapshot and compatibility notes.
+
 ## Installation
 
 Clone the repository and copy the inner `skills/bricks-builder/` directory to a skill location supported by your agent.
@@ -50,7 +60,7 @@ Clone the repository and copy the inner `skills/bricks-builder/` directory to a 
 ### User-level installation
 
 ```bash
-git clone https://github.com/kenming/bricks-academy-skill.git /tmp/bricks-builder-skill
+git clone https://github.com/kenming/bricks-builder-skill.git /tmp/bricks-builder-skill
 mkdir -p ~/.agents/skills
 cp -R /tmp/bricks-builder-skill/skills/bricks-builder ~/.agents/skills/
 ```
@@ -58,7 +68,7 @@ cp -R /tmp/bricks-builder-skill/skills/bricks-builder ~/.agents/skills/
 ### Project-level installation
 
 ```bash
-git clone https://github.com/kenming/bricks-academy-skill.git /tmp/bricks-builder-skill
+git clone https://github.com/kenming/bricks-builder-skill.git /tmp/bricks-builder-skill
 mkdir -p .agents/skills
 cp -R /tmp/bricks-builder-skill/skills/bricks-builder .agents/skills/
 ```
@@ -66,6 +76,16 @@ cp -R /tmp/bricks-builder-skill/skills/bricks-builder .agents/skills/
 Claude Code users can use the same pattern with `~/.claude/skills/` or `.claude/skills/`.
 
 Invoke it explicitly with `$bricks-builder`, or ask a clearly Bricks-specific documentation or development question.
+
+## Invocation examples
+
+Ask a clearly Bricks-specific question to trigger the Skill implicitly:
+
+![Implicit invocation for a Bricks Container question](screenshots/chat-container-query.svg)
+
+Use `$bricks-builder` when you want to invoke it explicitly, especially for an exact hook, schema, or implementation question:
+
+![Explicit invocation for a Bricks query hook](screenshots/chat-hook-query.svg)
 
 ## Local corpus tools
 

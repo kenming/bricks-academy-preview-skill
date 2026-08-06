@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="520" viewBox="0 0 1400 520" role="img" aria-labelledby="title desc">
+  <title id="title">Bricks Builder Skill evidence workflow</title>
+  <desc id="desc">A Bricks task flows through the official Academy corpus, focused development guidance, and version-sensitive verification before producing sourced guidance.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="1400" height="520" rx="24" fill="#0f172a"/>
+  <text x="700" y="52" text-anchor="middle" fill="#f8fafc" font-family="DejaVu Sans, sans-serif" font-size="28" font-weight="700">How the Bricks Builder Skill Builds an Answer</text>
+
+  <rect x="40" y="105" width="250" height="128" rx="18" fill="#1d4ed8"/>
+  <text x="165" y="145" text-anchor="middle" fill="#eff6ff" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700">BRICKS TASK</text>
+  <text x="165" y="178" text-anchor="middle" fill="#dbeafe" font-family="DejaVu Sans, sans-serif" font-size="16">Research, build, edit,</text>
+  <text x="165" y="202" text-anchor="middle" fill="#dbeafe" font-family="DejaVu Sans, sans-serif" font-size="16">or audit a Bricks site</text>
+
+  <line x1="290" y1="169" x2="345" y2="169" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="360" y="92" width="285" height="154" rx="18" fill="#0f766e"/>
+  <text x="502" y="128" text-anchor="middle" fill="#ecfeff" font-family="DejaVu Sans, sans-serif" font-size="17" font-weight="700">1 · OFFICIAL DOCUMENTATION</text>
+  <text x="502" y="163" text-anchor="middle" fill="#ccfbf1" font-family="DejaVu Sans, sans-serif" font-size="16">Search the synchronized</text>
+  <text x="502" y="187" text-anchor="middle" fill="#ccfbf1" font-family="DejaVu Sans, sans-serif" font-size="16">Bricks Academy corpus</text>
+  <text x="502" y="220" text-anchor="middle" fill="#99f6e4" font-family="DejaVu Sans Mono, monospace" font-size="14">guides · hooks · schema</text>
+
+  <line x1="645" y1="169" x2="700" y2="169" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="715" y="92" width="285" height="154" rx="18" fill="#6d28d9"/>
+  <text x="857" y="128" text-anchor="middle" fill="#f5f3ff" font-family="DejaVu Sans, sans-serif" font-size="17" font-weight="700">2 · DEVELOPMENT GUIDANCE</text>
+  <text x="857" y="163" text-anchor="middle" fill="#ede9fe" font-family="DejaVu Sans, sans-serif" font-size="16">Load only the relevant</text>
+  <text x="857" y="187" text-anchor="middle" fill="#ede9fe" font-family="DejaVu Sans, sans-serif" font-size="16">workflow and safety rules</text>
+  <text x="857" y="220" text-anchor="middle" fill="#ddd6fe" font-family="DejaVu Sans Mono, monospace" font-size="14">elements · JSON · queries</text>
+
+  <line x1="1000" y1="169" x2="1055" y2="169" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="1070" y="92" width="290" height="154" rx="18" fill="#b45309"/>
+  <text x="1215" y="128" text-anchor="middle" fill="#fffbeb" font-family="DejaVu Sans, sans-serif" font-size="17" font-weight="700">3 · VERSION VERIFICATION</text>
+  <text x="1215" y="163" text-anchor="middle" fill="#fef3c7" font-family="DejaVu Sans, sans-serif" font-size="16">Check an authorized active</text>
+  <text x="1215" y="187" text-anchor="middle" fill="#fef3c7" font-family="DejaVu Sans, sans-serif" font-size="16">installation when needed</text>
+  <text x="1215" y="220" text-anchor="middle" fill="#fde68a" font-family="DejaVu Sans Mono, monospace" font-size="14">keys · shapes · signatures</text>
+
+  <path d="M1215 246 L1215 315 L700 315 L700 360" fill="none" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="390" y="375" width="620" height="100" rx="20" fill="#1f2937" stroke="#475569" stroke-width="2"/>
+  <text x="700" y="416" text-anchor="middle" fill="#f8fafc" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="700">Sourced, version-aware Bricks guidance</text>
+  <text x="700" y="448" text-anchor="middle" fill="#cbd5e1" font-family="DejaVu Sans, sans-serif" font-size="16">No invented control keys · No parent-theme edits · Clear verification limits</text>
+</svg>
