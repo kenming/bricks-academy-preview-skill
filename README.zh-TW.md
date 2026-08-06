@@ -1,196 +1,106 @@
-# Bricks Academy Skill
+# Bricks Builder Skill
 
-這是一個可公開發布的 Agent Skill repo，用來查詢 Bricks Academy 官方文件。
+這是一個 local-first Agent Skill，用來查詢、開發、修改與審核 Bricks Builder 網站。
 
-此 repo 包含：
+它整合三層證據：
 
-- `https://academy.bricksbuilder.io/` 的本地 Markdown 鏡像
-- 文件所引用的本地圖片資產
-- 查詢與開啟文檔的腳本
-- 重新同步官方 Academy 文件的腳本
-- 一份放在 `skills/bricks-academy/` 下的 skill 定義
+1. 同步自 Bricks Academy 官方文件的本地 corpus；
+2. 精簡、人工維護的開發工作流程；
+3. 當精確實作細節會影響結果時，對獲授權的實際 Bricks 安裝進行版本感知查驗。
 
-## 目錄重點
+此 Skill 不包含或重製 Bricks 商業 Theme 原始碼。
+
+## Repository 結構
 
 ```text
-skills/bricks-academy/
+skills/bricks-builder/
 ├── SKILL.md
-├── corpus/
-├── index/
+├── agents/
 ├── references/
+│   └── development/
+├── corpus/
+│   └── bricks-academy/
+├── index/
 └── scripts/
 ```
 
-重要路徑：
+Academy corpus 與 index 是同步生成物。Development references 則刻意維持精簡，著重查證與實作流程，不建立難以維護的完整內部 control keys 快照。
 
-- Skill 入口：`skills/bricks-academy/SKILL.md`
-- 本地 corpus：`skills/bricks-academy/corpus/bricks-academy/`
-- 搜尋索引：`skills/bricks-academy/index/academy_corpus_manifest.csv`
+## 能力範圍
 
-## 目前快照
+- 從本機搜尋 Bricks Academy 官方 guides、hooks、elements、controls 與 schemas。
+- 在不猜測儲存格式的前提下，指導 Bricks page／element JSON 開發。
+- 在 child theme 或 plugin 中安全開發 custom elements。
+- 處理 responsive settings、Theme Styles、global classes、variables 與 components。
+- 為 Dynamic Data、Query Loop、Forms 與 hooks 選擇正確的官方及實際版本來源。
+- 在 Builder 與 frontend 驗證變更。
 
-- `764` 篇同步完成的文件
-- `614` 張已下載的本地圖片
-- `51` 個外部嵌入內容以連結方式保留
+## 目前 Academy 快照
 
-以上數字會隨 Academy 官方文件更新而變動。
+- `764` 篇同步文件
+- `614` 張本地圖片
+- `51` 個外部 embed 以連結保留
 
-## 安裝方式
+以上數字會隨官方文件更新而變動。
 
-這個 repo 採用帶有 `skills/` 巢狀目錄的 skill repository 形式：
+## 安裝
 
-```text
-bricks-academy-skill/
-└── skills/
-    └── bricks-academy/
-        └── SKILL.md
-```
+Clone repository 後，將內層 `skills/bricks-builder/` 複製到 Agent 支援的 Skill 目錄。
 
-手動安裝時，應該複製內層的 `skills/bricks-academy/` 到你的 agent 會掃描的 skill 目錄。
-
-常見 skill 位置：
-
-- Codex/Copilot 使用者層級：`~/.agents/skills/`
-- Codex/Copilot 專案層級：`.agents/skills/`
-- Claude Code 使用者層級：`~/.claude/skills/`
-- Claude Code 專案層級：`.claude/skills/`
-- 其他 AI agents：請查閱該 agent 關於 skill 儲存位置的官方或專案文件。
-
-### 方式 1：安裝到 Codex/Copilot 使用者層級
+### 使用者層級
 
 ```bash
-git clone https://github.com/kenming/bricks-academy-skill.git /tmp/bricks-academy-skill
+git clone https://github.com/kenming/bricks-academy-skill.git /tmp/bricks-builder-skill
 mkdir -p ~/.agents/skills
-cp -R /tmp/bricks-academy-skill/skills/bricks-academy ~/.agents/skills/
-rm -rf /tmp/bricks-academy-skill
+cp -R /tmp/bricks-builder-skill/skills/bricks-builder ~/.agents/skills/
 ```
 
-結果：
-
-```text
-~/.agents/skills/
-└── bricks-academy/
-    └── SKILL.md
-```
-
-### 方式 2：安裝到 Codex/Copilot 專案層級
+### 專案層級
 
 ```bash
-git clone https://github.com/kenming/bricks-academy-skill.git /tmp/bricks-academy-skill
+git clone https://github.com/kenming/bricks-academy-skill.git /tmp/bricks-builder-skill
 mkdir -p .agents/skills
-cp -R /tmp/bricks-academy-skill/skills/bricks-academy .agents/skills/
-rm -rf /tmp/bricks-academy-skill
+cp -R /tmp/bricks-builder-skill/skills/bricks-builder .agents/skills/
 ```
 
-結果：
+Claude Code 可使用相同方式，將目的地換成 `~/.claude/skills/` 或 `.claude/skills/`。
 
-```text
-.agents/skills/
-└── bricks-academy/
-    └── SKILL.md
-```
+可用 `$bricks-builder` 顯式觸發，或直接提出明確的 Bricks 文件或開發問題。
 
-若使用 Claude Code，請用相同複製方式，將目的地改為 `~/.claude/skills/`
-或 `.claude/skills/`。
+## 本地 corpus 工具
 
-### 安裝後確認
-
-請確認安裝後的 skill 目錄至少包含：
-
-- `SKILL.md`
-- `scripts/`
-- `references/`
-- `corpus/`
-- `index/`
-
-之後可直接對 agent 詢問：
-
-- `How does Bricks query loop work?`
-- `Look up bricks/query/before_loop`
-- `Find the docs for Theme Styles in Bricks`
-
-## 如何觸發 Skill
-
-這份 skill 同時支援顯式與隱式兩種觸發方式。
-
-### 顯式觸發
-
-如果你想明確指定 agent 使用這份 skill，可以直接寫出 skill 名稱：
-
-```text
-$bricks-academy Find the docs for bricks/query/before_loop and answer briefly.
-```
-
-這種方式適合：
-
-- 你想強制先查本地文檔
-- 你正在測試 skill 是否正常工作
-- 你不想讓 agent 混用較廣泛的通用知識
-
-### 隱式觸發
-
-直接用自然語言提出明確屬於 Bricks Builder 的問題：
-
-```text
-In Bricks, what does bricks/query/before_loop do?
-Where are Theme Styles configured in Bricks?
-What is the Container element used for in Bricks?
-```
-
-這份 skill 的設計目標是：
-
-- 對明確屬於 Bricks 的問題，自動觸發本地 corpus 查詢
-- 對不相干的一般問題，不要過度觸發 skill
-
-範例：
-
-![顯式觸發範例](screenshots/chat-hook-query.png)
-
-![隱式觸發範例：Theme Styles](screenshots/chat-theme-styles-query.png)
-
-![隱式觸發範例：Container element](screenshots/chat-container-query.png)
-
-## 基本使用
-
-搜尋：
+從 repository 根目錄執行：
 
 ```bash
-python3 skills/bricks-academy/scripts/search_corpus.py "query loop"
-python3 skills/bricks-academy/scripts/search_corpus.py "bricks/query/before_loop" --kind hook
-python3 skills/bricks-academy/scripts/search_corpus.py "theme styles" --section builder --subsection builder/styling --limit 5
+python3 skills/bricks-builder/scripts/search_corpus.py "query loop"
+python3 skills/bricks-builder/scripts/search_corpus.py "bricks/query/before_loop" --kind hook
+python3 skills/bricks-builder/scripts/show_doc.py "new:developer/hooks/actions/action-bricks-query-before_loop"
 ```
 
-開啟單篇文檔：
+不下載完整 corpus，先檢查 Academy 是否更新：
 
 ```bash
-python3 skills/bricks-academy/scripts/show_doc.py "new:developer/hooks/actions/action-bricks-query-before_loop"
+python3 skills/bricks-builder/scripts/check_academy_updates.py
 ```
 
-重新同步 Academy 文件：
+確實需要時才執行完整同步：
 
 ```bash
-bash skills/bricks-academy/scripts/run_academy_sync.sh
+bash skills/bricks-builder/scripts/run_academy_sync.sh
 ```
 
-不下載完整 corpus，輕量檢查官方 Academy 文件是否更新：
+## 證據與授權邊界
 
-```bash
-python3 skills/bricks-academy/scripts/check_academy_updates.py
-```
+- 查詢官方公開行為時，先使用本地 Academy corpus。
+- 精確 control keys、hook signatures、JSON shapes 與內部行為，應在可用時對使用者獲授權的實際 Bricks 版本查驗。
+- Bricks parent theme 維持唯讀；custom code 放在 child theme 或 plugin。
+- 不發布商業 Theme 原始碼、credentials、私人網站資料或本機絕對路徑。
 
-完成可信任的完整同步後，更新輕量檢查用的遠端 ETag baseline：
+## 文件
 
-```bash
-python3 skills/bricks-academy/scripts/check_academy_updates.py --update-cache
-```
-
-## 說明
-
-- 這個 repo 追蹤的是 Bricks Academy 官方文件，內容仍可能持續調整。
-- 上游的文件結構與內容未來很可能持續調整。
-- 這份 skill 的設計原則是先查本地 corpus，再視需要回退到線上網站。
-- 版本變更紀錄請見 `CHANGELOG.md`。
+- English：[`README.md`](README.md)
+- 版本紀錄：[`CHANGELOG.md`](CHANGELOG.md)
 
 ## 授權
 
-本 repo 採用 MIT License，詳見 `LICENSE`。
+本 repository 採 MIT License，詳見 [`LICENSE`](LICENSE)。

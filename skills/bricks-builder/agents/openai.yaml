@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bricks Builder"
+  short_description: "Research and build Bricks sites with verified guidance"
+  default_prompt: "Use $bricks-builder to research or implement this Bricks Builder task with version-aware verification."
