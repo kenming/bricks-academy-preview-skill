@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+## v1.0.1 - 2026-08-06
+
+### Fixed
+
+- Narrowed the Skill activation metadata to require a substantive Bricks site
+  outcome and exclude repository maintenance, naming, versioning,
+  documentation, and release tasks.
+
 ## v1.0.0 - 2026-08-06
 
 ### Added

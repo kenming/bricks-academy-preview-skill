@@ -1,6 +1,6 @@
 ---
 name: bricks-builder
-description: Research, build, edit, and audit Bricks Builder sites using the bundled Bricks Academy corpus, stable development workflows, and version-aware verification against an authorized active Bricks installation. Use for Bricks elements, controls, schema, hooks, templates, styling, responsive settings, dynamic data, queries, forms, interactions, custom elements, or Bricks page JSON. Do not use for generic WordPress, PHP, CSS, or JavaScript work without a clear Bricks context.
+description: Research, implement, modify, and audit behavior inside Bricks Builder sites using the bundled Bricks Academy corpus, stable development workflows, and version-aware verification against an authorized active Bricks installation. Use when the requested outcome concerns Bricks elements, controls, schema, hooks, templates, styling, responsive settings, dynamic data, queries, forms, interactions, custom elements, or page JSON. Do not use merely because Bricks Builder is mentioned, for generic WordPress, PHP, CSS, or JavaScript work, or for maintaining, naming, versioning, documenting, or releasing this Skill repository.
 ---
 
 # Bricks Builder
