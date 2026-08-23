@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/styling/pseudo-classes.md
 pageType: "article"
 section: "builder"
 category: "styling"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Bricks lets you apply different styles to an element depending on its state (such as on mouse `:hover` or a `:visited` link) via pseudo-classes.
 

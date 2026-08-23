@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/features/interactions.md"
 pageType: "article"
 section: "builder"
 category: "features"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Interactions, available since Bricks 1.6, let you run an action when something happens on the front end. A simple interaction can show a hidden element on click. A more advanced interaction can listen for a query AJAX event, check browser storage, fetch an AJAX popup with the right post context, or call a custom JavaScript function.
 
@@ -65,7 +65,27 @@ Element triggers listen on the source element:
 
 Click interactions call `event.preventDefault()` by default. Since Bricks 2.0, you can enable **Disable: preventDefault** for a click interaction if the clicked element should keep its normal browser behavior, such as following a link.
 
-Enter viewport supports a `rootMargin` setting since Bricks 2.0. For example, `0px 0px -50% 0px` can make the interaction trigger when the element reaches a more specific viewport position. Leave viewport does not use `rootMargin`.
+### Viewport triggers {#viewport-triggers}
+
+**Enter viewport** and **Leave viewport** watch the interaction's source element. Since Bricks 2.4, both triggers include **Element visibility**, which sets how much of that element must cross the viewport boundary:
+
+- `0%`: Enter viewport runs when any part of the element becomes visible. Leave viewport runs when the element is no longer visible.
+- `50%`: Enter viewport runs when half of the element is visible. Leave viewport runs after the element has reached that amount and its visible area drops below half.
+- `100%`: Enter viewport runs when the whole element is visible. Leave viewport runs when it is no longer fully visible.
+
+The default is `0%`. Values between `0` and `100` are supported.
+
+An element must fit inside the active viewport area to reach `100%`. Use a lower value for elements that are taller or wider than that area.
+
+**Enter viewport** also supports **Root margin** since Bricks 2.0. Root margin changes the active viewport boundary, while Element visibility controls how much of the source element must cross that boundary. For example, a bottom root margin of `0px 0px -50% 0px` moves the lower boundary to the middle of the viewport. Leave viewport does not use Root margin.
+
+<div className="screenshot screenshot--control-panel">
+
+![Enter viewport interaction with Element visibility set to 50% and the Root margin field visible.](imgs/bricks-interactions-element-visibility-4bf073b3e9.webp)
+
+</div>
+
+The source element remains the element that Bricks observes. To animate or modify another element when the source crosses the boundary, choose **CSS selector** as the interaction [target](#targets) and enter that element's selector.
 
 ### Browser and window triggers {#browser-window-triggers}
 

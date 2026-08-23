@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/elements/filter/filter-ch
 pageType: "article"
 section: "builder"
 category: "elements"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Creates a checkbox filter interface for AJAX-powered content filtering. Users can select multiple options to narrow down query results. Supports taxonomy terms, WordPress fields, and custom fields as filter sources.
 

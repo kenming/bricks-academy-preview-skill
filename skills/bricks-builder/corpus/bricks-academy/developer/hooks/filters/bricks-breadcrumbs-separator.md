@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/developer/hooks/filters/bricks-br
 pageType: "article"
 section: "developer"
 category: "hooks"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Filters the separator HTML displayed between items in the Breadcrumbs element.
 

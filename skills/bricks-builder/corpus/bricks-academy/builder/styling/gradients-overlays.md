@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/styling/gradients-overlay
 pageType: "article"
 section: "builder"
 category: "styling"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Spice up your site's design by adding background, overlay, and text gradients to any element. When editing an element, the Gradients & Overlays control group is under the Style tab.
 

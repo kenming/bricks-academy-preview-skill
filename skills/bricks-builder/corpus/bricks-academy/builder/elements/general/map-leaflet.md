@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/elements/general/map-leaf
 pageType: "article"
 section: "builder"
 category: "elements"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 **Map (Leaflet)** (`map-leaflet`) embeds an interactive map using **Leaflet** and **tile layers** (default: **OpenStreetMap**). Unlike the Google [Map](/builder/elements/general/map/) element, it does **not** use the Google Maps JavaScript API—use this when you want OSM-style tiles or custom tile URLs without Google.
 

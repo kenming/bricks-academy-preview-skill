@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/developer/hooks/filters/bricks-br
 pageType: "article"
 section: "developer"
 category: "hooks"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Filters the array of breadcrumb items (HTML strings) before they are rendered in the Breadcrumbs element. This allows you to add, remove, or modify specific breadcrumb links.
 

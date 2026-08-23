@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/developer/hooks/filters/bricks-re
 pageType: "article"
 section: "developer"
 category: "hooks"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Determines whether a specific post or page should be rendered using Bricks. If this filter returns `false`, Bricks will yield control to the default WordPress template loader or another builder.
 

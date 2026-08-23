@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/developer/hooks/filters/bricks-da
 pageType: "article"
 section: "developer"
 category: "hooks"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Filters the cache key used to store and retrieve the list of all Bricks templates. This allows plugins to create unique cache entries based on context (e.g., current language).
 

@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/developer/controls/link-control.m
 pageType: "article"
 section: "developer"
 category: "controls"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 The link control give you the choice of different link types:
 

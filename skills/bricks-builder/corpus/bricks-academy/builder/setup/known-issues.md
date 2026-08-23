@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/setup/known-issues.md"
 pageType: "article"
 section: "builder"
 category: "setup"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 ## When I open the builder I don't see the elements on the canvas {#empty-canvas}
 

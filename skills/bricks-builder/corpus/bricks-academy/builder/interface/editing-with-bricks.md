@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/interface/editing-with-br
 pageType: "article"
 section: "builder"
 category: "interface"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 This article explains how to open the Bricks builder, what each main area of the interface does, and how editing with Bricks relates to rendering the page on the frontend.
 

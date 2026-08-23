@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/elements/basic/heading.md
 pageType: "article"
 section: "builder"
 category: "elements"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 The Heading element displays text in heading tags (h1-h6) with optional separator lines and styling options.
 

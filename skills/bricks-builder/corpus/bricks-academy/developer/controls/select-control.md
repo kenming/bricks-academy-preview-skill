@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/developer/controls/select-control
 pageType: "article"
 section: "developer"
 category: "controls"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 The select control lets you select an option from a dropdown. It can be used to render content or CSS styling. Use the options array to populate the dropdown with your own options. The option key should be all lowercase, with no spaces.
 

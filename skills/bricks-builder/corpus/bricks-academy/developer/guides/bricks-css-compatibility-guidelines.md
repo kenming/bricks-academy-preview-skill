@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/developer/guides/bricks-css-compa
 pageType: "article"
 section: "developer"
 category: "guides"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Bricks aims to use CSS features that are broadly supported in modern browsers and avoid fallbacks that add weight for uncommon older browsers. We use [Baseline](https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility) as a practical reference when evaluating CSS support in Bricks output.
 

@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/getting-started/query-loops-dynam
 pageType: "article"
 section: "getting-started"
 category: "query-loops-dynamic-data"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 https://youtu.be/3WCyZaPtmpA
 

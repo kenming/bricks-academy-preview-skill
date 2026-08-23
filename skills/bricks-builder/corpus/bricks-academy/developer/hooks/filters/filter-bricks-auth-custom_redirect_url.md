@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/developer/hooks/filters/filter-br
 pageType: "article"
 section: "developer"
 category: "hooks"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 This filter is distinct from other authentication-related filters in that it provides a broad scope for customizing redirections during authentication processes. Unlike specific filters for [login](/developer/hooks/filters/filter-bricks-auth-custom_login_redirect/), [registration](/developer/hooks/filters/filter-bricks-auth-custom_registration_redirect/), [lost password](/developer/hooks/filters/filter-bricks-auth-custom_lost_password_redirect/), or [reset password pages](/developer/hooks/filters/filter-bricks-auth-custom_reset_password_redirect/), this filter applies to any authentication-related URL.
 

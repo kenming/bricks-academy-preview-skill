@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/elements/basic/button.md"
 pageType: "article"
 section: "builder"
 category: "elements"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 The Button element creates clickable buttons with customizable styles, sizes, and optional icons.
 

@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/features/builder-browser.
 pageType: "article"
 section: "builder"
 category: "features"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 The **Builder Browser**, introduced in Bricks 2.4, is the folder popup in the builder toolbar. It brings templates, components, public post types, media, and builder managers into one browser-style popup.
 
@@ -50,7 +50,7 @@ It lets you browse these template sources:
 - **My Templates**
 - **Wireframes**
 - **Design sets**
-- Configured **Remote templates**
+- Configured **Remote sites**
 
 You can search templates, switch between grid and list view, filter by source, bundle, tag, and type, and use the available template actions.
 
@@ -59,6 +59,7 @@ Available actions depend on the selected source and your builder permissions:
 - **Create template**
 - **Save as template**
 - **Import template** from JSON or ZIP files
+- **Import to templates**, for saving a non-local template under My Templates
 - **Generate screenshots**, for local My Templates when screenshot generation is enabled
 - **Reload**, for remote template sources
 - **Insert**, **edit**, **export**, **delete**, and **preview** on individual templates
@@ -81,6 +82,7 @@ The Components view gives you a Component Manager inside the Browser.
 
 You can:
 
+- Switch between **My components** and configured remote sites under **Source**.
 - Search components.
 - Filter by category.
 - Filter by usage: all usage, used on current page, used elsewhere, or unused.
@@ -88,6 +90,10 @@ You can:
 - Import component JSON or ZIP files.
 - Edit, duplicate, export, delete, or generate a screenshot for a component.
 - Generate screenshots for the currently filtered component list.
+
+When a remote site is selected, the manager shows the remote catalog instead of local usage filters and editing actions. Use **Refresh** to request the catalog again and **Load more** when another page is available. Importing a remote component opens a review for nested components, global classes, global variables, and color palettes before anything is saved locally.
+
+Save pending component, class, variable, and color changes before starting a remote import. Bricks returns to **My components** and refreshes the imported design-system data after a successful import.
 
 Component screenshots are generated from a standalone component preview and saved as component thumbnail metadata. Generating screenshots requires the **Edit components** builder permission.
 
@@ -97,7 +103,7 @@ Click the usage badge to see current-page instances and other pages where the co
 
 ![](imgs/bricks-browser-component-manager-6ed80a1012.webp)
 
-For the full component workflow, see [Components](/builder/features/components/).
+For the local component workflow, see [Components](/builder/features/components/).
 
 ## Posts, pages, and custom post types
 
@@ -120,21 +126,22 @@ By default, regular post types use the WordPress **posts per page** value. If th
 
 ## Media
 
-The Media view uses the same post browser layout for attachments.
+The Media view is a media-management workspace for attachments in the WordPress Media Library.
 
 You can:
 
-- Search media items.
-- Open the WordPress Media Library upload flow from the folder action.
-- Sort media items.
-- Switch between grid and list view.
-- Preview a media item.
-- Edit a media item in WordPress.
-- Show or hide the date, author, and MIME type metadata.
+- Search attachment IDs, file names, titles, captions, descriptions, and alternative text.
+- Filter by media type, MIME subtype, uploader, attachment status, upload date, dimensions, file size, missing alternative text, and Media Health status.
+- Upload local files or import public files from URLs.
+- Switch between grid, masonry, and list views.
+- Inspect files and edit attachment metadata.
+- Select files across result pages for bulk metadata, download, folder, image-size, and deletion actions.
+- Audit common accessibility and file problems with Media Health.
+- Organize files with folders when a compatible media-folder integration is active.
 
-Media defaults to `50` items per page. The settings popover lets you change the Browser's media pagination between `1` and `100`.
+The Bricks Media Browser is also the default picker for Image, Image Gallery, Video, Audio, SVG, and File controls. Change the picker under **Bricks > Settings > Builder > Media** if you prefer the standard WordPress Media Library interface. Both interfaces use the same WordPress attachments.
 
-The Media view is for quick discovery, preview, and handoff to the WordPress Media Library. Use the WordPress Media Library for full media management such as detailed attachment editing and bulk cleanup.
+Media defaults to `50` items per page. The settings popover lets you change the pagination between `1` and `100` and choose whether attachment details open beside the results or in an overlay.
 
 ## Managers
 

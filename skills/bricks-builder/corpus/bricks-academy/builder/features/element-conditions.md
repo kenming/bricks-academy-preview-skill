@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/features/element-conditio
 pageType: "article"
 section: "builder"
 category: "features"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Element Conditions let you define one or multiple conditions for any element. Only if those conditions are met is the element rendered on the front end.
 
@@ -122,12 +122,22 @@ In the example above, the condition is fulfilled when the Metabox checkbox list 
 
 Bricks 2.4 adds WooCommerce conditions for checkout and order-aware layouts:
 
+- **Checkout : Login step needed**
+- **Checkout : Needs shipping**
 - **Checkout : Needs shipping address**
 - **Checkout : Order has status**
 - **Order : Needs shipping address**
 - **Order : Has downloads**
 
-Use these conditions inside WooCommerce v2 checkout, pay, thank-you, order receipt, account view-order, and other order-aware layouts when content should only appear for a matching shipping or order state.
+Use these conditions inside WooCommerce v2 checkout, pay, thank-you, order receipt, account view-order, and other order-aware layouts when content should only appear for a matching checkout or order state.
+
+**Checkout : Login step needed** is **Yes** only for a logged-out customer when **WooCommerce > Settings > Accounts & Privacy > Enable log-in during checkout** is enabled. The generated [Checkout v2 multistep structure](/integrations/woocommerce/multistep-checkout-v2/#account-login-step-visibility) uses it to keep the Account Login navigation item, step, and Customer info Back button in sync.
+
+**Checkout : Needs shipping** checks whether the non-empty cart contains products that require shipping. Use it for shipping methods and any Checkout v2 section or step that customers need to access to choose a shipping method.
+
+**Checkout : Needs shipping address** checks whether WooCommerce needs a separate shipping address. This can return **No** when WooCommerce is set to force shipping to the billing address, even though the cart still requires shipping and customers still need to choose a shipping method.
+
+For a Checkout v2 layout, apply **Checkout : Needs shipping** to the Shipping options wrapper. In a multistep layout, apply the same condition to both the Shipping step and its matching navigation item. Apply **Checkout : Needs shipping address** only to the **Ship to another address** control and shipping-address fields.
 
 See [WooCommerce v2 query loops and dynamic tags](/integrations/woocommerce/woocommerce-v2-query-loops-dynamic-tags/#conditions) for the related WooCommerce v2 data reference.
 

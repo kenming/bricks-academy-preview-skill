@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/interface/editing-element
 pageType: "article"
 section: "builder"
 category: "interface"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Elements are the building blocks of a Bricks layout. This article explains how elements are added, selected, nested, styled, reset, copied, and edited in single-element and bulk-edit workflows.
 

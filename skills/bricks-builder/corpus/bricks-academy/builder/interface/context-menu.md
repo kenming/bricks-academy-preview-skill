@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/interface/context-menu.md
 pageType: "article"
 section: "builder"
 category: "interface"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 The Bricks context menu gives you quick access to actions for the selected element. It is especially useful for copying, pasting, duplicating, deleting, hiding, wrapping, converting, and saving reusable layout pieces.
 

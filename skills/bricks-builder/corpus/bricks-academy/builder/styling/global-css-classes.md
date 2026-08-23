@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/styling/global-css-classe
 pageType: "article"
 section: "builder"
 category: "styling"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 A global CSS class is a reusable Bricks style target. Instead of styling one element's ID only, you create a class, assign it to one or more elements, and edit the class visually with the same controls you use for element styling.
 
@@ -166,7 +166,7 @@ Administrators can also disable the Global Class Manager under `Bricks > Setting
 
 The element panel is where you apply a class and edit the active class while working on an element.
 
-The Global Class Manager is where you maintain the class library: categories, bulk renaming, locks, trash, import/export, usage filters, and conflict review.
+The Global Class Manager is where you maintain the class library: custom CSS for a selected class, categories, bulk renaming, locks, trash, import/export, usage filters, and conflict review.
 
 You can create and use classes from either workflow, but they serve different jobs:
 

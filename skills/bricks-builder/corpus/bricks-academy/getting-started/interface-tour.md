@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/getting-started/interface-tour.md
 pageType: "article"
 section: "getting-started"
 category: "interface-tour"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 https://youtu.be/zOaFPlcgSeg
 

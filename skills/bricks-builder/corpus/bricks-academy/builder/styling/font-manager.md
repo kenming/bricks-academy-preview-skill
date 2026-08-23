@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/styling/font-manager.md"
 pageType: "article"
 section: "builder"
 category: "styling"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 The Font Manager is the central place to browse, favorite, download, upload, edit, and remove the fonts available in Bricks typography controls.
 

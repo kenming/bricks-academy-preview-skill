@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/developer/controls/datepicker-con
 pageType: "article"
 section: "developer"
 category: "controls"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 The datepicker control provides a great interface for selecting a specific date and time and outputting it in the [format of your choice](http://hilios.github.io/jQuery.countdown/documentation.html#directives).
 

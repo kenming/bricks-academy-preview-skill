@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/integrations/polylang.md"
 pageType: "article"
 section: "integrations"
 category: "polylang"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Polylang is a WordPress plugin designed to simplify the creation of multilingual websites.
 

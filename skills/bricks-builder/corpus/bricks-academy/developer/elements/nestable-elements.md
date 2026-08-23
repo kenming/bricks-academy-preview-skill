@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/developer/elements/nestable-eleme
 pageType: "article"
 section: "developer"
 category: "elements"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Bricks 1.5 introduces **Nestable Elements**. Plus an API that allows you to programmatically define your own custom elements that can contain other elements. In exactly the structure you want.
 

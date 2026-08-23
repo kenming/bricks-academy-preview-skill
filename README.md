@@ -41,8 +41,8 @@ The Academy corpus and index are generated synchronization products. Development
 
 ## Current Academy snapshot
 
-- `764` synchronized documentation pages
-- `614` downloaded local images
+- `768` synchronized documentation pages
+- `631` downloaded local images
 - `51` external embeds preserved as links
 
 These numbers change as the official documentation evolves.

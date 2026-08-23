@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/styling/theme-styles.md"
 pageType: "article"
 section: "builder"
 category: "styling"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Theme Styles are site-level style defaults in Bricks. Use them to define the baseline look for pages, templates, and elements: typography, links, colors, contextual spacing, buttons, forms, images, layout elements, popups, and other element defaults.
 

@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/interface/builder-access.
 pageType: "article"
 section: "builder"
 category: "interface"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Bricks gives you full control over who can access the builder, and what actions they're allowed to perform. You can either assign a **predefined capability**, or create your own **custom capability** that allows only the specific permissions you enable for it.
 
@@ -113,12 +113,27 @@ Choose which post types can be edited using Bricks.
 
 ### Components {#components}
 
+- Access remote components
 - Insert components
 - Edit properties (instance)
 - Edit components
 - Create components
 - Delete components
 - Import/export components
+
+Remote workflows combine these permissions instead of using one broad access flag:
+
+| Workflow | Required permissions |
+| --- | --- |
+| Browse a configured remote component library | **Access remote components** |
+| Import a remote component | **Access remote components** and **Import/export components** |
+| Insert an imported component | **Insert components** |
+| Insert a remote template without components | **Access remote templates** and **Insert templates** |
+| Insert a remote template with component dependencies | **Access remote templates**, **Insert templates**, **Access remote components**, **Import/export components**, and **Insert components** |
+| Save a remote template to My Templates | **Access remote templates** and **Import/export templates** |
+| Save a remote template with component dependencies to My Templates | The template import permissions above, plus **Access remote components** and **Import/export components** |
+
+See [Remote Templates](/builder/features/remote-templates/) for the corresponding template setup.
 
 ### Element editing & styling {#element-edit-style}
 

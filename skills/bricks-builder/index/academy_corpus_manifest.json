@@ -449,7 +449,7 @@
     "section": "builder",
     "subsection": "builder/elements",
     "doc_kind": "element",
-    "asset_count": 13,
+    "asset_count": 14,
     "external_embed_count": 0,
     "status": "ok",
     "note": ""
@@ -814,6 +814,19 @@
     "subsection": "builder/elements",
     "doc_kind": "element",
     "asset_count": 0,
+    "external_embed_count": 0,
+    "status": "ok",
+    "note": ""
+  },
+  {
+    "doc_id": "new:builder/elements/media/file",
+    "title": "File",
+    "source_url": "https://academy.bricksbuilder.io/builder/elements/media/file/",
+    "local_path": "corpus/bricks-academy/builder/elements/media/file.md",
+    "section": "builder",
+    "subsection": "builder/elements",
+    "doc_kind": "element",
+    "asset_count": 3,
     "external_embed_count": 0,
     "status": "ok",
     "note": ""
@@ -2087,7 +2100,7 @@
     "section": "builder",
     "subsection": "builder/features",
     "doc_kind": "guide",
-    "asset_count": 23,
+    "asset_count": 24,
     "external_embed_count": 0,
     "status": "ok",
     "note": ""
@@ -2101,6 +2114,19 @@
     "subsection": "builder/features",
     "doc_kind": "guide",
     "asset_count": 1,
+    "external_embed_count": 0,
+    "status": "ok",
+    "note": ""
+  },
+  {
+    "doc_id": "new:builder/features/media-browser",
+    "title": "Media Browser",
+    "source_url": "https://academy.bricksbuilder.io/builder/features/media-browser/",
+    "local_path": "corpus/bricks-academy/builder/features/media-browser.md",
+    "section": "builder",
+    "subsection": "builder/features",
+    "doc_kind": "guide",
+    "asset_count": 6,
     "external_embed_count": 0,
     "status": "ok",
     "note": ""
@@ -2158,6 +2184,19 @@
     "note": ""
   },
   {
+    "doc_id": "new:builder/features/remote-components",
+    "title": "Remote Components",
+    "source_url": "https://academy.bricksbuilder.io/builder/features/remote-components/",
+    "local_path": "corpus/bricks-academy/builder/features/remote-components.md",
+    "section": "builder",
+    "subsection": "builder/features",
+    "doc_kind": "guide",
+    "asset_count": 4,
+    "external_embed_count": 0,
+    "status": "ok",
+    "note": ""
+  },
+  {
     "doc_id": "new:builder/features/remote-templates",
     "title": "Remote Templates",
     "source_url": "https://academy.bricksbuilder.io/builder/features/remote-templates/",
@@ -2165,7 +2204,7 @@
     "section": "builder",
     "subsection": "builder/features",
     "doc_kind": "guide",
-    "asset_count": 3,
+    "asset_count": 4,
     "external_embed_count": 0,
     "status": "ok",
     "note": ""
@@ -2646,7 +2685,7 @@
     "section": "builder",
     "subsection": "builder/styling",
     "doc_kind": "guide",
-    "asset_count": 7,
+    "asset_count": 8,
     "external_embed_count": 0,
     "status": "ok",
     "note": ""
@@ -6075,6 +6114,19 @@
     "title": "Filter: bricks/wpml/exclude_controls_from_translation",
     "source_url": "https://academy.bricksbuilder.io/developer/hooks/filters/bricks-wpml-exclude_controls_from_translation/",
     "local_path": "corpus/bricks-academy/developer/hooks/filters/bricks-wpml-exclude_controls_from_translation.md",
+    "section": "developer",
+    "subsection": "developer/hooks",
+    "doc_kind": "hook",
+    "asset_count": 0,
+    "external_embed_count": 0,
+    "status": "ok",
+    "note": ""
+  },
+  {
+    "doc_id": "new:developer/hooks/filters/bricks-wpml-translatable_control_types",
+    "title": "Filter: bricks/wpml/translatable_control_types",
+    "source_url": "https://academy.bricksbuilder.io/developer/hooks/filters/bricks-wpml-translatable_control_types/",
+    "local_path": "corpus/bricks-academy/developer/hooks/filters/bricks-wpml-translatable_control_types.md",
     "section": "developer",
     "subsection": "developer/hooks",
     "doc_kind": "hook",

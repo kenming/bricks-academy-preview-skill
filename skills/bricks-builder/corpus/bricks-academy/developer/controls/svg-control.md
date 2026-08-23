@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/developer/controls/svg-control.md
 pageType: "article"
 section: "developer"
 category: "controls"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 The SVG control lets you select an SVG (Scalable Vector Graphic) file from the media library. The selected SVG returns an array with the following keys:
 

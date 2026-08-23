@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/developer/controls/repeater-contr
 pageType: "article"
 section: "developer"
 category: "controls"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 The repeater control lets you create repeatable fields. Fields can be cloned, deleted, and sorted via Drag & Drop. Use the `fields` argument to set up the field controls.
 

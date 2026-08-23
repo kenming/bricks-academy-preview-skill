@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder.md"
 pageType: "hub"
 section: "builder"
 category: ""
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 The Builder section covers the main Bricks workflow: configuring the builder, working inside the interface, styling layouts, connecting data, and using templates and advanced features in real projects.
 

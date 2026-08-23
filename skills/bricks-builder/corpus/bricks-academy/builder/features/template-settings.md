@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/features/template-setting
 pageType: "article"
 section: "builder"
 category: "features"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Template Settings control how a Bricks template behaves as a template. They are separate from element settings and page settings.
 
@@ -169,7 +169,7 @@ Hook fields are only available for Section templates in the builder.
 
 If no template conditions are set, Bricks can still use published templates of supported types when default templates are enabled.
 
-This setting is in **Bricks > Settings > Templates > Disable default templates**.
+This setting is in **Bricks > Settings > Templates & components > Disable default templates**.
 
 When disabled, templates need matching conditions or route-specific behavior to render. This makes production template assignment easier to audit.
 

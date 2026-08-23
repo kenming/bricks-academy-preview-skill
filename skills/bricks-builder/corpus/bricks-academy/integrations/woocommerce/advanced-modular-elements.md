@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/integrations/woocommerce/advanced
 pageType: "article"
 section: "integrations"
 category: "woocommerce"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Starting in Bricks 2.4, the WooCommerce integration includes an advanced modular workflow for the store areas that usually require the most setup: Cart, Checkout, and My Account.
 
@@ -56,14 +56,14 @@ Cart, Checkout, and Account Page v2 states can generate complete starter layouts
 
 ![](imgs/woo-v2-insert-structure-cart-e3e090dc37.png)
 
-Generated structures are site-aware where needed. For checkout and account address forms, Bricks reads the WooCommerce field definitions that exist at generation time and turns them into editable Bricks form field elements. After generation, you can style, move, reorder, and place those fields like regular Bricks elements.
+Generated structures are site-aware where needed. For checkout, checkout account credentials, and account address forms, Bricks reads the WooCommerce field definitions that exist at generation time and turns them into editable Bricks form field elements. After generation, you can style, move, reorder, and place those fields like regular Bricks elements.
 
 :::note
 Some WooCommerce v2 support elements are generated-only or context-specific. If you do not see a v2 support element in the regular Elements panel, create it through **Insert a structure** or the [Woo Setup Wizard](/integrations/woocommerce/woo-setup-wizard/). After generation, the element appears in the Structure panel and can be edited inside its v2 state.
 :::
 
 :::note
-Checkout fields can change after a layout is generated. For example, a plugin may add a VAT field, remove a company field, or change labels and placeholders. Use field sync after installing, removing, or reconfiguring plugins that modify WooCommerce checkout or account address fields.
+Checkout fields can change after a layout is generated. For example, a plugin may add a VAT field, remove a company field, change labels and placeholders, or add an account field. Use field sync after installing, removing, or reconfiguring plugins that modify WooCommerce checkout or account address fields.
 :::
 
 Field sync can report valid, missing, invalid, and duplicate generated fields. It can generate missing fields, remove invalid or duplicate generated fields, and update labels and placeholders from the current WooCommerce field data.
@@ -85,7 +85,7 @@ Bricks 2.4 registers these advanced modular support elements:
 | Area | Registered support elements |
 | --- | --- |
 | Cart v2 | Cart form, Cart quantity |
-| Checkout v2 | Checkout steps navigation, Checkout step nav item, Checkout step, Shipping options, Payment options, WooCommerce form field, WooCommerce form submit, Checkout billing address, Checkout shipping address, Checkout order summary, Checkout place order |
+| Checkout v2 | Checkout steps navigation, Checkout step nav item, Checkout step, Shipping options, Payment options, WooCommerce form field, WooCommerce form submit, Checkout account fields, Checkout billing address, Checkout shipping address, Checkout order summary, Checkout place order |
 | Account Page v2 | WooCommerce login form, Account register form, Account lost password form, Account reset password form, Account orders pagination, Account edit address form, Account edit account form |
 | Cart-dependent content | Dynamic fragment |
 
@@ -113,6 +113,8 @@ The [Checkout v2 element](/builder/elements/woocommerce/checkout-v2/) is added t
 Use the **State** control to design each checkout screen from one page. The checkout state can generate complete checkout structures or smaller sections such as billing fields, shipping fields, payment options, additional fields, order summary, and place order.
 
 Checkout v2 also includes checkout field maintenance actions to help compare generated fields with the site's current WooCommerce checkout fields.
+
+Generated billing and complete checkout structures include a **Checkout account fields** wrapper. It follows WooCommerce's guest checkout, account creation, username generation, and password setup settings. See [Checkout v2 account creation](/builder/elements/woocommerce/checkout-v2/#account-creation-during-checkout) for the settings matrix and field sync behavior.
 
 The **Login required** state is used when WooCommerce requires a customer to log in before viewing order-related checkout screens, such as pay, receipt, or thank you flows for a registered customer order.
 

@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/developer/elements/create-your-ow
 pageType: "article"
 section: "developer"
 category: "elements"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 The Bricks [child theme](/developer/guides/child-theme/), which you can download from your [Bricks account](https://my.bricksbuilder.io/) includes a simple custom element for demonstration purposes. The article below explains in more detail how to create your own elements programmatically.
 

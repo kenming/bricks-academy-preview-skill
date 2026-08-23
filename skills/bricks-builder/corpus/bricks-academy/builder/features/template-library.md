@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/features/template-library
 pageType: "article"
 section: "builder"
 category: "features"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 In Bricks 2.4, templates are managed inside the Builder Browser. Open it by clicking the folder icon in the builder toolbar.
 
@@ -35,7 +35,7 @@ In the Templates view, the **Source** dropdown can include:
 - **My Templates**: Templates from the current site.
 - **Wireframes**: Structural Bricks templates based on classes and variables.
 - **Design sets**: Pre-designed Bricks template sets.
-- **Remote templates**: Templates from configured remote Bricks installations.
+- **Remote sites**: Templates from configured remote Bricks installations.
 
 [Remote Templates](/builder/features/remote-templates/) allow you to browse templates from any other Bricks installation that you have access to.
 
@@ -59,7 +59,9 @@ The Templates view can show these filters:
 
 The Templates view includes action icons for creating, saving, importing, reloading remote sources, generating local template screenshots when available, and switching between grid and list view.
 
-Individual templates can show actions such as insert, edit, export, delete, and preview, depending on the source and your builder permissions.
+Individual templates can show actions such as insert, edit, export, delete, preview, and **Import to templates**, depending on the source and your builder permissions.
+
+**Import to templates** saves a non-local template under **My Templates**. For a configured Bricks remote site, Bricks 2.4 also localizes component dependencies and their referenced design-system data before continuing through the normal template import flow.
 
 ### Create Template {#create-template}
 
@@ -85,6 +87,8 @@ To import templates from the WordPress dashboard go to
 Select your template file (JSON/ZIP) from your computer and click **Import template(s)**. Or drag and drop those files into the drop zone.
 
 When imported templates include related data, Bricks may ask you to review imported theme styles, color palettes, global variables, global classes, or Style Manager settings before inserting the template.
+
+Remote templates that use components can also transfer those components, including nested component dependencies. See [Remote Templates](/builder/features/remote-templates/) for the access, permission, conflict, and compatibility rules.
 
 ### Sync Templates
 

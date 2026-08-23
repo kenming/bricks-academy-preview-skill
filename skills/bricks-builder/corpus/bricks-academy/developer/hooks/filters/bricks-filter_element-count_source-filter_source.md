@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/developer/hooks/filters/bricks-fi
 pageType: "article"
 section: "developer"
 category: "hooks"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Filters indexed count data for a specific custom filter source. The `{$filter_source}` portion of the hook name should be replaced with the actual `filterSource` key, such as `wcField` or a custom source.
 

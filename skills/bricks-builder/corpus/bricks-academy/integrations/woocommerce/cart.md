@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/integrations/woocommerce/cart.md"
 pageType: "article"
 section: "integrations"
 category: "woocommerce"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 ## Overview
 
@@ -119,7 +119,7 @@ To customize this screen you need to create a **WooCommerce - Empty Cart** templ
 
 Bricks 1.4 introduced the **Cart Contents** query loop. This query loops through all visible products in the cart, enabling [Dynamic Data tags](/integrations/woocommerce/woocommerce-builder/#dynamic-data) for cart item data such as the product name (post title), product image (featured image), price, description, SKU, and more. This query loop is intended for cart-content layouts and is not restricted to the Cart page.
 
-This allows you to build your own cart items widget. In Bricks 2.4, the same `wooCart` query loop is also useful inside a [Dynamic fragment](/builder/elements/woocommerce/dynamic-fragment/) for custom mini cart layouts that refresh after cart changes.
+This allows you to build your own cart items widget. In Bricks 2.4, the same `wooCart` query loop is also useful inside a [Dynamic fragment](/builder/elements/woocommerce/dynamic-fragment/) for custom mini cart layouts that refresh after cart changes. Bricks 2.4 also adds separate title, item data, unit price, and savings output for custom cart rows.
 
 ### Build your own cart items element inside the cart page {#custom-cart-contents-loop}
 
@@ -153,9 +153,13 @@ Cart Contents query loop
 
 
 
-- `{woo_cart_product_name}` - Renders the product name with a link. It is meant to be used inside of the Cart Contents loop.
+- `{woo_cart_product_name}` - Renders the linked product name together with cart item metadata and other legacy WooCommerce output.
+- `{woo_cart_product_title}` - Renders the product title without cart item metadata. Use `:plain` to remove the link.
+- **Cart item data** element - Renders variation attributes and compatible extension-provided item data separately from the product title.
 - `{woo_cart_remove_link}` - Renders the anchor tag with the link to remove the product from the cart. By default, uses an "x" in the anchor content. Remember to add `product-remove` CSS class on the element that holding this dynamic tag. Do **NOT** use on Rich text element or additional `` tag will cause the AJAX not working.
 - `{woo_product_price}` - This tag shows the product price. But when used inside of the Cart Contents loop it doesn't show the sale price.
+- `{woo_cart_item_price}` - Renders the current unit price and includes WooCommerce sale-price markup when discounted. Use `:value` for the unformatted current unit price.
+- `{woo_cart_item_save}` - Renders the product savings for the full cart item quantity. Use `:value` for the unformatted savings amount or `:percentage` for the numeric discount percentage.
 - `{woo_product_sku}` - Returns the product SKU for the current cart item. (@since 2.4)
 - `{woo_product_gtin}` - Returns the product GTIN for the current cart item. (@since 2.4)
 - `{woo_cart_quantity}` - Renders the input field to add/remove the product quantity inside of the cart.

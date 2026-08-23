@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/setup/requirements.md"
 pageType: "article"
 section: "builder"
 category: "setup"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 This article covers the recommended server limits and browser compatibility for Bricks, plus how to fix common limits. The [Installation and setup](/getting-started/installation-setup/) guide links here when you need the full checklist or troubleshooting.
 

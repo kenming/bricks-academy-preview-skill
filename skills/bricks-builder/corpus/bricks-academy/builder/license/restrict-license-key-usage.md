@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/license/restrict-license-
 pageType: "article"
 section: "builder"
 category: "license"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 By default, you can activate your Bricks license key on any website that runs the Bricks theme. That is, if you have not already reached the site limit of your purchased license ([https://bricksbuilder.io/pricing/](https://bricksbuilder.io/pricing/)).
 

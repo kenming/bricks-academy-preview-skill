@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/integrations.md"
 pageType: "hub"
 section: "integrations"
 category: ""
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 The Integrations section brings together Bricks guides for third-party platforms, plugins, and external services that commonly shape real production projects.
 

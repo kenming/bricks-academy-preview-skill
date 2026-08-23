@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/features/an-intro-to-temp
 pageType: "article"
 section: "builder"
 category: "features"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Templates are reusable Bricks layouts that can render in specific parts of your site. They are different from ordinary pages because Bricks can choose them automatically for the current request: the site header, site footer, blog posts, archives, search results, error pages, popups, password gates, and WooCommerce routes.
 
@@ -116,7 +116,7 @@ For terms and individual entries, Bricks also supports child matching. You can a
 
 ## Default templates
 
-Bricks can use some published templates even when no conditions are set. This is controlled by **Bricks > Settings > Templates > Disable default templates**.
+Bricks can use some published templates even when no conditions are set. This is controlled by **Bricks > Settings > Templates & components > Disable default templates**.
 
 When default templates are enabled, Bricks can use published templates of supported types as fallbacks. This commonly affects headers and footers, and also applies to supported archive, search, error, and WooCommerce route templates.
 
@@ -144,7 +144,7 @@ This does not delete the header or footer template. It only disables that templa
 
 Browse Bricks' built-in Wireframes and Design sets right from within the builder.
 
-Access pre-designed templates by clicking the "folder" icon in the builder's top toolbar. Then, under "Source," select **Wireframes**, **Design sets**, or any configured **Remote templates** source.
+Access pre-designed templates by clicking the folder icon in the builder's top toolbar. Then, under **Source**, select **Wireframes**, **Design sets**, or a configured remote site.
 
 Insert the template of your choice with a single click and tweak it from there.
 

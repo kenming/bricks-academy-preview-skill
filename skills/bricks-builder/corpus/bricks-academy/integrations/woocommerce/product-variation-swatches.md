@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/integrations/woocommerce/product-
 pageType: "article"
 section: "integrations"
 category: "woocommerce"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Bricks 2.0 introduces **Product variation swatches**, giving you more control over how product attribute options (i.e. color, size, pattern) appear on the frontend.
 
@@ -99,5 +99,21 @@ To style them:
 ![](imgs/bricks-woo-variation-swatches-add-to-cart-cc0c233fdd.png)
 
 From there, you can adjust the size, spacing, borders, active states, tooltips, and more.
+
+## Unavailable variation options
+
+Bricks follows the availability state of the hidden WooCommerce variation dropdown. When WooCommerce disables an option for the current attribute combination, Bricks adds the `disabled` class and `aria-disabled="true"` to the matching swatch.
+
+You can style unavailable swatches with custom CSS:
+
+```css
+.bricks-variation-swatches li.disabled,
+.bricks-variation-swatches li[aria-disabled="true"] {
+  opacity: 0.45;
+  text-decoration: line-through;
+}
+```
+
+There is no separate Bricks setting that forces every out-of-stock option to be hidden or disabled. If a swatch does not receive the disabled state, check the product's stock settings and the exact variation combination in WooCommerce first.
 
 That's it. With variation swatches, you can now turn standard variation dropdowns into polished, interactive product selectors, designed your way, directly in the Bricks builder.

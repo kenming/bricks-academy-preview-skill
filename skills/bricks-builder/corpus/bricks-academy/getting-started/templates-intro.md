@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/getting-started/templates-intro.m
 pageType: "article"
 section: "getting-started"
 category: "templates-intro"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 https://youtu.be/9v2TUaA-oFg
 
@@ -107,7 +107,7 @@ Click **Templates** (folder icon) in the builder toolbar.
 - **My Templates** - Your custom templates
 - **Wireframes** - Simple, unstyled layouts you can insert and customize
 - **Design Sets** - Fully designed templates
-- **Remote Templates** - Connect to other Bricks installations as template sources. If you've added any, they show up here too. Learn more: [Remote Templates documentation](/builder/features/remote-templates/)
+- **Remote sites** - Browse templates from Bricks installations configured under **Bricks > Settings > Templates & components > Remote libraries**. Learn more: [Remote Templates documentation](/builder/features/remote-templates/)
 
 We'll use wireframes later to speed up building.
 

@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/developer/functions/function-bric
 pageType: "article"
 section: "developer"
 category: "functions"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 This helper function will render the dynamic data tags inside of a content string (@since 1.5.5).
 

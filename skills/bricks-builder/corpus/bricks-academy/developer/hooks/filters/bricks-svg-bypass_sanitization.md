@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/developer/hooks/filters/bricks-sv
 pageType: "article"
 section: "developer"
 category: "hooks"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Determines whether to bypass the SVG sanitization process when uploading SVG files. This can be useful if you need to upload SVGs with complex features (like animations or scripts) that the sanitizer would normally strip out, but it comes with security risks.
 

@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/developer/hooks/filters/bricks-cm
 pageType: "article"
 section: "developer"
 category: "hooks"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Filters the output value of a CMB2 checkbox field when rendered via Bricks dynamic data. By default, Bricks converts 'on' to "Yes" and other values to "No".
 

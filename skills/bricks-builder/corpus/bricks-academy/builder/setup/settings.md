@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/setup/settings.md"
 pageType: "article"
 section: "builder"
 category: "setup"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 The Bricks settings screen (**Bricks > Settings**) is where you configure global options for your entire installation. Every setting documented here maps directly to what you see in the admin screen.
 
@@ -200,7 +200,7 @@ Note: Any user role with the `manage_options` WordPress capability has full buil
 
 ---
 
-## Templates
+## Templates & components {#templates}
 
 ### My templates
 
@@ -213,22 +213,33 @@ Settings for your locally created Bricks templates.
   - **Template thumbnail column: Height**: Column thumbnail height in px. Default: 60.
 - **Disable default templates**: By default, if a published Bricks template exists with no conditions set, Bricks renders it on the frontend. Enable this to disable that fallback behavior and require explicit conditions on all templates.
 - **Public templates**: When enabled, your templates can be viewed by anyone. When disabled, only logged-in users can view templates.
-- **My templates access**: Allows other Bricks installations to browse and import your templates from their own template library. Restrict access using the whitelist and password settings below.
-- **Whitelist URLs**: Limits remote template access to specific site URLs. Enter one URL per line. Leave blank to allow any site.
-- **Password protection**: Adds a password that remote sites must enter to access your templates.
+- **My templates access**: Allows other Bricks installations to browse and insert your templates from their own template library. Restrict access using the shared Remote access settings below.
 - **Exclude templates**: Select specific templates to exclude from remote access even when access is otherwise enabled.
 
-### Remote templates
+### My components
 
-Configure remote Bricks installations to pull templates from in your local template library. You can add multiple remote sources.
+- **Component screenshots**: Automatically generates component screenshots on every builder save and enables the individual and bulk generate actions in the Component Manager. This is enabled by default on new installations. Disabling it stops generation and hides saved local component thumbnails without deleting the files. Use **Delete screenshots** to remove all generated component screenshots.
+- **My components access**: Allows other Bricks installations to browse and import your components. Restrict access using the shared Remote access settings below.
+- **Exclude components**: Keeps selected components out of the remote catalog. Bricks also blocks a remote import when the selected component depends on an excluded component.
+
+### Remote access
+
+These controls are shared by remote templates and components:
+
+- **Whitelist URLs**: Limits access to specific destination-site URLs. Enter one URL per line. Leave blank to allow any site that meets the other access requirements.
+- **Password protection**: Adds a password that remote sites must enter to access exposed templates or components. The field includes show, copy, and generate controls.
+
+### Remote libraries
+
+Configure other Bricks installations as template and component sources. You can add multiple remote sites.
 
 For each remote source:
 
-- **Name**: Label shown in the template source dropdown instead of the URL.
-- **URL**: Full URL of the remote Bricks installation. The remote site must have "My templates access" enabled.
-- **Password**: The password set on the remote site under "My templates access: Password protection."
+- **Name**: Label shown in builder source dropdowns instead of the URL.
+- **URL**: Full URL of the remote Bricks installation.
+- **Password**: The password set on the source site under **Remote access > Password protection**.
 
-See the [remote templates](/builder/features/remote-templates) article for setup instructions.
+The source site separately controls whether it exposes templates, components, or both. See [Remote Templates](/builder/features/remote-templates/) for the template setup.
 
 ### Miscellaneous
 
@@ -280,6 +291,8 @@ Sets what happens when you click the Bricks logo in the builder toolbar.
 Fine-tune the behavior of the builder's settings panel.
 
 - **Class preview on hover**: When hovering over a global class name in the classes field, shows a preview of the styles defined in that class.
+- **Class dropdown: Auto-select first class**: Added in Bricks 2.4. Automatically selects the first valid global class assigned to an element when you select that element on the canvas. Disabled by default. If Bricks is also set to remember the last selected class and that class is still assigned to the element, the remembered class takes priority.
+- **Class dropdown: Disable auto-selecting last selected class**: Added in Bricks 2.4. Prevents Bricks from automatically restoring the last global class you selected for an element. Disabled by default, so Bricks continues to restore the last selected class unless you enable this setting. If you enable this setting together with **Class dropdown: Auto-select first class**, Bricks selects the first assigned class instead.
 - **Color preview on hover**: Shows a color swatch when hovering over color values in the control panel.
 - **Variable preview on hover**: Shows the resolved value of a CSS variable when hovering over it in dropdowns or input fields.
 - **Disable auto-expand**: Prevents text editor and code controls from automatically expanding when you focus them.
@@ -315,6 +328,18 @@ Controls when an indicator icon appears on controls that support per-breakpoint 
 
 - **Show all fonts (default)**: All available fonts appear in the font family dropdown.
 - **Show favorites only**: Only fonts you've marked as favorites appear.
+
+### Media
+
+Introduced in Bricks 2.4.
+
+- **Media picker**: Chooses the interface used by supported Image, Image Gallery, Video, Audio, SVG, and File controls. **Bricks: Media browser** is the default. **WordPress: Media library** opens the standard WordPress picker instead. Both options use attachments from the WordPress Media Library.
+- **Media folders**: Shows the active compatible folder integration. Bricks includes support for <a href="https://happyfiles.io/" target="_blank" rel="noopener noreferrer">HappyFiles</a>. Without an active integration, the Media Browser remains available without folder organization.
+- **Enable media health checks**: Audits the Media Library incrementally for missing alternative text, broken files, obsolete formats, missing image sizes, and files above the configured size thresholds. Enabled by default.
+
+All five Media Health checks are enabled by default. The default oversized-file thresholds are 1 MB for images, 0.5 MB for fonts, 5 MB for documents, 10 MB for audio, and 50 MB for video. Set a threshold to `0` to disable warnings for that media type.
+
+The default obsolete file extensions are `bmp,tif,tiff`. Enter extensions without leading dots, separated by commas. Clear the field so no extensions are flagged as obsolete.
 
 ### Canvas
 

@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/developer/guides/custom-javascrip
 pageType: "article"
 section: "developer"
 category: "guides"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Bricks dispatches custom JavaScript events for several frontend actions. Use these events when your own scripts need to respond to Bricks forms, popups, query filters, AJAX updates, tabs, accordions, or other interactive elements.
 

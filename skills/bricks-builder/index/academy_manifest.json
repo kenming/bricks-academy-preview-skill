@@ -756,6 +756,18 @@
     "local_path": ""
   },
   {
+    "doc_id": "new:builder/elements/media/file",
+    "origin": "academy",
+    "title": "File",
+    "normalized_title": "file",
+    "source_url": "https://academy.bricksbuilder.io/builder/elements/media/file/",
+    "source_slug": "file",
+    "fallback_slug": "file",
+    "canonical_slug": "file",
+    "section_or_category": "builder/elements",
+    "local_path": ""
+  },
+  {
     "doc_id": "new:builder/elements/media/image-gallery",
     "origin": "academy",
     "title": "Image gallery",
@@ -1944,6 +1956,18 @@
     "local_path": ""
   },
   {
+    "doc_id": "new:builder/features/media-browser",
+    "origin": "academy",
+    "title": "Media Browser",
+    "normalized_title": "media browser",
+    "source_url": "https://academy.bricksbuilder.io/builder/features/media-browser/",
+    "source_slug": "media-browser",
+    "fallback_slug": "media-browser",
+    "canonical_slug": "media-browser",
+    "section_or_category": "builder/features",
+    "local_path": ""
+  },
+  {
     "doc_id": "new:builder/features/menu-builder",
     "origin": "academy",
     "title": "Menu Builder",
@@ -1988,6 +2012,18 @@
     "source_slug": "popup-builder",
     "fallback_slug": "popup-builder",
     "canonical_slug": "popup-builder",
+    "section_or_category": "builder/features",
+    "local_path": ""
+  },
+  {
+    "doc_id": "new:builder/features/remote-components",
+    "origin": "academy",
+    "title": "Remote Components",
+    "normalized_title": "remote components",
+    "source_url": "https://academy.bricksbuilder.io/builder/features/remote-components/",
+    "source_slug": "remote-components",
+    "fallback_slug": "remote-components",
+    "canonical_slug": "remote-components",
     "section_or_category": "builder/features",
     "local_path": ""
   },
@@ -5612,6 +5648,18 @@
     "source_slug": "bricks-wpml-exclude_controls_from_translation",
     "fallback_slug": "bricks-wpml-exclude_controls_from_translation",
     "canonical_slug": "bricks-wpml-exclude-controls-from-translation",
+    "section_or_category": "developer/hooks",
+    "local_path": ""
+  },
+  {
+    "doc_id": "new:developer/hooks/filters/bricks-wpml-translatable_control_types",
+    "origin": "academy",
+    "title": "Filter: bricks/wpml/translatable_control_types",
+    "normalized_title": "filter bricks/wpml/translatable control types",
+    "source_url": "https://academy.bricksbuilder.io/developer/hooks/filters/bricks-wpml-translatable_control_types/",
+    "source_slug": "bricks-wpml-translatable_control_types",
+    "fallback_slug": "bricks-wpml-translatable_control_types",
+    "canonical_slug": "bricks-wpml-translatable-control-types",
     "section_or_category": "developer/hooks",
     "local_path": ""
   },

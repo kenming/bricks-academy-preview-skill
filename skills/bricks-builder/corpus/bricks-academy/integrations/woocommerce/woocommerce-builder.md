@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/integrations/woocommerce/woocomme
 pageType: "article"
 section: "integrations"
 category: "woocommerce"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 WooCommerce is a free plugin to manage the e-commerce functionality of your WordPress site. It is the world's most popular open-source solution to create and manage a shop on the Internet, and therefore Bricks proudly integrates with it.
 
@@ -165,7 +165,13 @@ GTIN is not shown in the Product meta element. Use the `{woo_product_gtin}` dyna
 
 Inside a [Cart Contents query loop](/integrations/woocommerce/cart/#loop), you can also use cart-specific tags:
 
-`{woo_cart_product_name}` - Renders the cart product name with a link.
+`{woo_cart_product_name}` - Renders the linked cart product name with its legacy combined metadata output.
+
+`{woo_cart_product_title}` - Renders the product title without cart item metadata. Use it with the **Cart item data** element when the title and variation details need separate styling. (@since 2.4)
+
+`{woo_cart_item_price}` - Renders the formatted unit price, including regular and current sale-price markup when discounted. Append `:value` for the unformatted current unit price. (@since 2.4)
+
+`{woo_cart_item_save}` - Renders the formatted product savings for the full cart item quantity. Append `:value` for the unformatted amount or `:percentage` for the numeric discount percentage. (@since 2.4)
 
 `{woo_cart_remove_link}` - Renders the cart item remove link.
 
@@ -208,7 +214,7 @@ When advanced modular elements are enabled, Bricks adds WooCommerce dynamic tags
 - Account addresses and account edit-address state data.
 - Order details, order items, order totals, order actions, downloads, and customer notes.
 
-Most of these tags depend on a v2 page state or query loop context. For example, `{woo_order_item_name}` belongs inside an `wooOrderItems` loop, while `{woo_cart_applied_coupon}` belongs inside a `wooCartCoupons` loop.
+Most of these tags depend on a v2 page state or query loop context. For example, `{woo_order_item_title}` belongs inside a `wooOrderItems` loop, while `{woo_cart_applied_coupon}` belongs inside a `wooCartCoupons` loop.
 
 ## Bricks Settings: WooCommerce
 

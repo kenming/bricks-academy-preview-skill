@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/features/popup-builder.md
 pageType: "article"
 section: "builder"
 category: "features"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 The Popup Builder lets you create fully custom popups in Bricks. A popup is a Bricks template with the template type **Popup**. Bricks renders the popup HTML on the front end, keeps it hidden by default, and opens or closes it through [Interactions](/builder/features/interactions/) or JavaScript.
 

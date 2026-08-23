@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/developer/hooks/filters/bricks-el
 pageType: "article"
 section: "developer"
 category: "hooks"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Filters the Flatpickr options for the datepicker field in the Form element. This allows you to customize the behavior of the date picker (e.g., disable specific dates, change the date format, set min/max dates).
 

@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/features/components.md"
 pageType: "article"
 section: "builder"
 category: "features"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Components let you create reusable elements. Each instance can be customized through properties.
 
@@ -72,6 +72,8 @@ From there you can:
 - Generate screenshots for the currently filtered component list.
 
 Generating component screenshots requires the **Edit components** builder permission. Component import and export require the **Import/export components** builder permission. The **Used elsewhere** filter only shows components that are not used on the current page but are used on another page or template.
+
+**Component screenshots** are enabled by default on new installations under **Bricks > Settings > Templates & components**. Disable the setting to stop automatic and manual generation and hide stored local thumbnails. Disabling it does not delete existing screenshot files. Use **Delete screenshots** in the same settings section to remove all generated component screenshots.
 
 ![](imgs/bricks-browser-component-manager-6ed80a1012.webp)
 

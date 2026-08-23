@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/features/ai-abilities-and
 pageType: "article"
 section: "builder"
 category: "features"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 import { Tabs, TabItem } from "@astrojs/starlight/components";
 
@@ -91,6 +91,67 @@ https://example.com/?rest_route=/mcp/mcp-adapter-default-server
 ```
 
 The toggle stays disabled if the adapter is not connected or if `BRICKS_DISABLE_MCP` forces MCP off.
+
+### Optional: Enable PHP execution
+
+The `bricks/execute-php` ability runs one-off PHP through an authenticated AI client without storing the submitted snippet. It gives the agent access to the same WordPress and PHP runtime as the site, including functions and data that are not covered by a dedicated Bricks ability.
+
+This ability is disabled by default and cannot be enabled from wp-admin or a database setting. Define the constant in one of these PHP locations before Bricks evaluates the ability:
+
+- `wp-config.php`, before the "That's all, stop editing" line
+- A must-use plugin
+- A plugin
+- A child theme's `functions.php`
+
+Do not edit the Bricks parent theme because theme updates overwrite those changes. Define the constant only once:
+
+```php
+define( 'BRICKS_ENABLE_EXECUTE_PHP_ABILITY', true );
+```
+
+In a child theme's `functions.php` or a plugin, use a guard to avoid redefining the constant:
+
+```php
+if ( ! defined( 'BRICKS_ENABLE_EXECUTE_PHP_ABILITY' ) ) {
+	define( 'BRICKS_ENABLE_EXECUTE_PHP_ABILITY', true );
+}
+```
+
+Use the boolean value `true`.
+
+::::caution[Use on trusted development environments]
+Enable direct PHP execution only on a local, staging, or otherwise trusted development environment. Remove the constant or set it to `false` when it is no longer needed.
+::::
+
+On a local or staging site, an agent can use this ability to:
+
+- Inspect active plugins, theme and plugin versions, PHP extensions, WordPress configuration, registered hooks, scheduled events, and other runtime state.
+- Reproduce a plugin or theme function with the site's actual data instead of reasoning from an error message alone.
+- Read PHP-accessible files and logs, check paths and permissions, or inspect a plugin or child theme implementation.
+- Make an explicitly approved file or data repair, then rerun the failing operation to verify the result.
+- Run one-off maintenance, migration, or setup tasks without installing a permanent code-snippet plugin.
+
+File access is limited by the permissions of the PHP process. The ability is not sandboxed, so it can also edit or delete files and data that PHP can access. Keep the site backed up and use version control when testing file changes.
+
+Every call must still meet all of these conditions:
+
+- Bricks abilities are enabled, and `BRICKS_DISABLE_MCP` is not forcing them off.
+- The request is authenticated with a WordPress application password.
+- The application-password user has the Bricks `Execute code` capability.
+- Bricks code execution is enabled under `Bricks > Settings > Custom code`.
+- `BRICKS_LOCK_CODE_SIGNATURES` is not enabled. The signature lock overrides the PHP execution constant.
+
+The connected user does not need the WordPress `manage_options` capability. While the constant is enabled, any connected user with the Bricks `Execute code` capability can submit PHP through this ability.
+
+Keeping activation in PHP configuration means the ability cannot be enabled through a WordPress option or database setting alone. The permission and configuration checks above run again for every call.
+
+To disable the ability, remove the constant or change it to:
+
+```php
+define( 'BRICKS_ENABLE_EXECUTE_PHP_ABILITY', false );
+```
+
+The highlighted `bricks/execute-php` row appears first under `Bricks > AI > Abilities`. Select `View setup` to expand the configuration instructions inside the row. Its status shows whether `BRICKS_ENABLE_EXECUTE_PHP_ABILITY` is undefined, `true`, `false`, or invalid, without exposing an unexpected constant value. When the constant is `true`, a second status shows whether the ability is callable or blocked by another requirement.
 
 ### 3. Create a credential
 
@@ -272,6 +333,27 @@ If a Bricks ability is not visible as a direct tool, call it through the MCP Ada
 
 Use `bricks-list-ability-status` to see which abilities are enabled, which are disabled, and which are default-off.
 
+## Settings Abilities and Remote Libraries
+
+The settings abilities use an allow-list rather than exposing the entire `bricks_global_settings` option:
+
+- `bricks/list-settings-schema` lists supported keys and their value types.
+- `bricks/get-global-settings` reads allowed settings.
+- `bricks/set-global-settings` updates only the keys sent in the request.
+- `bricks/list-credential-status` reports whether known credentials are configured without returning their values.
+
+The Remote Templates and Remote Components settings use these keys:
+
+| Setting key | Ability behavior |
+| --- | --- |
+| `myTemplatesAccess` | Readable and writable boolean for exposing this site's templates. |
+| `myComponentsAccess` | Readable and writable boolean for exposing this site's components. |
+| `myTemplatesWhitelist` | Readable and writable newline-separated URL whitelist shared by templates and components. Its stored key keeps the older name for compatibility. |
+| `remoteTemplates` | Reads and writes remote-library URLs and optional display names. Stored passwords are preserved but never returned or written through the abilities. |
+| `myTemplatesPassword` | Excluded from settings reads and writes. `bricks/list-credential-status` reports only whether the shared **Remote access password** is configured and identifies it as used by remote template and component access. |
+
+The `myTemplatesPassword` key also keeps its older internal name for compatibility. AI and MCP clients cannot read, replace, or clear the password. Manage it in **Bricks > Settings > Templates & components > Remote access**.
+
 ## Installing Bricks skills
 
 Skills are optional. Get the MCP connection working first.
@@ -318,6 +400,7 @@ Treat an MCP-connected AI client like a real WordPress user.
 - Bricks checks WordPress capabilities, builder access, and Bricks builder permissions before abilities can read or write.
 - The Abilities tab controls which Bricks abilities are available on the site.
 - `BRICKS_DISABLE_MCP` in `wp-config.php` is a hard off switch for the entire MCP surface.
+- `bricks/execute-php` has a separate, strict boolean opt-in in PHP configuration and rechecks its authentication and code-execution requirements on every call.
 - Application passwords can be revoked from the selected user's WordPress profile.
 - Post and template element writes create Bricks [revisions](/builder/interface/revisions/) where supported. Global data writes, such as classes, variables, theme styles, and components, are not covered by post revisions.
 
@@ -340,6 +423,7 @@ Recommended defaults:
 | Application passwords are unavailable for one user         | A security plugin, filter, or user-level restriction disabled application passwords | Check the selected user, security plugins, and filters that control WordPress application password availability.                              |
 | The client only shows `mcp-adapter-*` tools                | Bricks direct tools are not loaded or the ability is outside the fast path | Use `mcp-adapter-discover-abilities`, call long-tail abilities through `mcp-adapter-execute-ability`, and check `bricks-list-ability-status`. |
 | A Bricks ability returns disabled                          | The ability is off in `Bricks > AI > Abilities`                            | Enable the ability or reset abilities to defaults.                                                                                            |
+| `bricks/execute-php` is unavailable                        | Its PHP constant is missing, a required permission is missing, code execution is disabled, or code signatures are locked | Open `Bricks > AI > Abilities`, select `View setup` for `bricks/execute-php`, and follow the blocked requirement shown there. |
 | Local HTTPS fails                                          | The local certificate is not trusted by the local `npx` process            | Use the scoped `NODE_TLS_REJECT_UNAUTHORIZED=0` generated by Bricks for local development, or trust the local certificate.                    |
 | The AI client keeps asking for approval on every tool call | The client has per-tool approval settings                                  | Approve the Bricks MCP server or adjust that client's MCP approval settings if you trust the workflow.                                        |
 

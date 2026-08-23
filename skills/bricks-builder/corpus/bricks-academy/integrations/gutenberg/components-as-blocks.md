@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/integrations/gutenberg/components
 pageType: "article"
 section: "integrations"
 category: "gutenberg"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 https://youtu.be/tgpjMcZaLNc
 
@@ -53,6 +53,16 @@ When a component is enabled for block editor use, additional block-specific sett
 3. Select the component. It renders directly inside the editor.
 
 The component behaves like any other block. You can add text above or below, reorder it, or combine it with other block editor blocks.
+
+### Wide and full-width blocks
+
+The block editor's **Wide width** and **Full width** options apply to the outer WordPress block wrapper. The elements inside the component still use their Bricks layout settings.
+
+A Bricks Container has a default maximum width of 1100px. A component with a Container at its root, or a Container nested inside a full-width root element, can therefore remain constrained even when the Gutenberg block is set to **Full width**.
+
+For a full-width component block, use a Section, Block, or Div with 100% width as the outer element. Set the width or maximum width of any inner Container intentionally, then select the required alignment for the block in Gutenberg.
+
+If the editor preview still differs from the frontend, check both the selected Gutenberg alignment and every Bricks layout element that can set a width or maximum width.
 
 ## Customize component properties
 

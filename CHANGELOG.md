@@ -2,6 +2,17 @@
 
 ## Unreleased
 
+### Added
+
+- Added Academy documentation for the File element, Media Browser, Remote
+  Components, and the `bricks/wpml/translatable_control_types` filter.
+
+### Changed
+
+- Refreshed the Academy snapshot to the 2026-08-23 metadata baseline with
+  `768` documents, `631` local images, and `51` external embeds, including
+  the current Bricks 2.4 beta documentation updates.
+
 ## v1.0.1 - 2026-08-06
 
 ### Fixed

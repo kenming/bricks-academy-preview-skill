@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/developer/guides/child-theme.md"
 pageType: "article"
 section: "developer"
 category: "guides"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 :::note
 Please do not edit any of the Bricks theme core files directly, as updating the theme will cause all your changes to be lost.

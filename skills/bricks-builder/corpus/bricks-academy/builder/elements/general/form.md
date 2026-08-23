@@ -1,12 +1,12 @@
 ---
 title: "Form"
-description: "The Form element lets you build custom forms with the following form field types:"
+description: "Build forms, validate submissions, and run email, integration, authentication, post, and custom actions with the Form element."
 canonical: "https://academy.bricksbuilder.io/builder/elements/general/form/"
 markdownUrl: "https://academy.bricksbuilder.io/builder/elements/general/form.md"
 pageType: "article"
 section: "builder"
 category: "elements"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 The Form element lets you build custom forms with the following form field types:
 
@@ -35,11 +35,9 @@ The form element also integrates with [Google reCaptcha V3](#spam), [hCaptcha](h
 
 Form actions run after the form has been submitted successfully.
 
-You may set one or multiple actions for your form. Action run in the sequence they have been selected, except for the "Redirect" action, which always runs at the very end.
+You may set one or multiple actions for your form. Actions run in the sequence they have been selected, except for the "Redirect" action, which always runs at the very end.
 
 For each selected action, a separate control group appears.
-
-
 
 ![Bricks Form element - email action settings](imgs/form-mail-action-3b75cccb09.jpg)
 
@@ -49,7 +47,54 @@ Form element: email action settings
 
 </figcaption>
 
+### Conditional actions (@since 2.4) {#conditional-actions}
 
+Use **Action conditions** to run a selected action only when submitted form data matches your rules. An action without an action rule always runs after a successful submission.
+
+To add a rule:
+
+1. Select every action the form may run under **Actions after successful form submit**.
+2. Under **Action conditions**, click **Add action rule**.
+3. Choose the **Action** to control. The list only includes actions selected for the current form.
+4. Under **Run action if**, choose a form **Field** and a **Compare** operator.
+5. Enter a **Value** when the selected operator requires one.
+6. Add more conditions if needed, then set **Relation** to **And** or **Or**.
+
+<div className="screenshot screenshot--control-panel">
+
+![](imgs/form-action-conditions-ab2c2f7456.webp)
+
+</div>
+
+The available comparison operators are:
+
+| Operator             | The condition matches when                    |
+| -------------------- | --------------------------------------------- |
+| **is**               | A submitted value exactly matches **Value**.  |
+| **is not**           | No submitted value exactly matches **Value**. |
+| **contains**         | A submitted value contains **Value**.         |
+| **does not contain** | No submitted value contains **Value**.        |
+| **is empty**         | The field has no submitted value.             |
+| **is not empty**     | The field has a submitted value.              |
+
+For fields that can submit multiple values, such as checkboxes, Bricks checks each submitted value. Use **is empty** or **is not empty** when the presence of a selection matters more than its exact value.
+
+#### Example: Subscribe only after consent
+
+A contact form can always send an enquiry email while subscribing only people who select a marketing consent checkbox:
+
+1. Add a checkbox field for marketing consent. Do not make it required if visitors must be able to submit the enquiry without subscribing.
+2. Select both **Email** and **Mailchimp** under **Actions after successful form submit**.
+3. Add an action rule and select **Mailchimp** as the action.
+4. Under **Run action if**, select the consent checkbox and set **Compare** to **is not empty**.
+
+The **Email** action has no rule, so it runs for every successful submission. **Mailchimp** runs only when the checkbox has a submitted value.
+
+:::note
+Within one action rule, **And** requires every condition to match, while **Or** requires at least one condition to match. If you add multiple action rules for the same action, every rule must pass.
+:::
+
+HTML fields are not available as condition fields because they do not submit values. File-field conditions include newly uploaded files and verified files retained by an **Update post** form. An incomplete rule, such as a missing field or required comparison value, does not run the action.
 
 ### Email {#email}
 
@@ -76,8 +121,6 @@ If the "From name" & "From email address" you have set under the "Confirmation E
 
 ### Form dynamic fields {#dynamic-fields}
 
-
-
 ![](imgs/form-fields-ids-5413d75034.jpg)
 
 <figcaption>
@@ -85,8 +128,6 @@ If the "From name" & "From email address" you have set under the "Confirmation E
 Field ID
 
 </figcaption>
-
-
 
 In certain scenarios, it could be useful to get some of the submitted form fields' content to populate the email action settings.
 
@@ -151,9 +192,9 @@ You can set up multiple webhook endpoints. Each has these options:
 - **Name**: Label for this webhook (for your reference only)
 - **Endpoint URL**: The URL to send form data to
 - **Data format**: Choose how the data is sent:
-`JSON` or `Form data` (x-www-form-urlencoded)
+  `JSON` or `Form data` (x-www-form-urlencoded)
 - **Data**: Optional payload template using dynamic field tags
-Leave empty to send all form fields. Example:
+  Leave empty to send all form fields. Example:
 
 ```php
 { "name": "{{43f295}}", "email": "{{a5c626}}" }
@@ -173,16 +214,16 @@ Default: `1024` (1 MB)
 #### Setting: Rate limiting
 
 - **Rate limiting**
-Enable to limit requests per hour
+  Enable to limit requests per hour
 - **Max requests per hour**
-Set the limit (default: `60`)
+  Set the limit (default: `60`)
 
 #### Setting: Error handling
 
 - **Continue on error**
-If enabled, form submission succeeds even if the webhook fails
+  If enabled, form submission succeeds even if the webhook fails
 - **Error message**
-Message shown if the webhook fails and "Continue on error" is off
+  Message shown if the webhook fails and "Continue on error" is off
 
 **Example: Zapier**
 
@@ -400,8 +441,6 @@ function my_form_custom_action_sending_email( $form ) {
 add_action( 'bricks/form/custom_action', 'my_form_custom_action_sending_email', 10, 1 );
 ```
 
-
-
 <span id="custom-redirect-to-hidden-field"></span>
 
 **Example #3** Custom redirect to a hidden field URL
@@ -416,8 +455,6 @@ Since 1.10, Ridirect action is supporting dynamic form field. You can choose Red
 **Method 2**
 You can use Custom action with some PHP code for more complicated logic. You can first place the url parameter into a hidden field.
 
-
-
 ![](imgs/store-url-param-into-hidden-field-b76b663774.png)
 
 <figcaption>
@@ -425,8 +462,6 @@ You can use Custom action with some PHP code for more complicated logic. You can
 Store url parameter into hidden key, and choose Custom action
 
 </figcaption>
-
-
 
 Then choose Custom action, and follow below code as an example
 
@@ -568,8 +603,6 @@ add_filter( 'bricks/form/validate', function( $errors, $form ) {
 
 ## Immediate input validation {#input-validation}
 
-
-
 ![](imgs/form-error-message-582x1024-a445d094c2.png)
 
 <figcaption>
@@ -578,18 +611,17 @@ Form field: Error message
 
 </figcaption>
 
-
-
 Bricks has enhanced the form user experience by introducing the ability to display error messages immediately as soon as a field loses focus.
 
 To utilize this feature:
 
 1. Add an "Error Message" to a specific form field.
 2. Upon losing focus, the form will evaluate the user input to determine if the "Error Message" should be displayed based on the following criteria:
-  - **Required:** Checks if mandatory fields have data.
-  - **Min/Max number:** Ensures entered numbers fall within a defined range.
-  - **Email:** Confirms the correctness of the email format.
-  - **URL:** Validates the structure of inputted URLs.
+
+- **Required:** Checks if mandatory fields have data.
+- **Min/Max number:** Ensures entered numbers fall within a defined range.
+- **Email:** Confirms the correctness of the email format.
+- **URL:** Validates the structure of inputted URLs.
 
 ### Disabling immediate input validation
 
@@ -639,6 +671,12 @@ After adding the keys, enable the reCaptcha setting when editing the Form elemen
 - **Size:** Pick from `compact` or `normal`.
 
 For detailed setup instructions, refer to the [hCaptcha documentation](https://docs.hcaptcha.com/switch/#get-your-hcaptcha-sitekey-and-secret-key).
+
+### Automated form testing
+
+For automated tests on a staging or test site, use [hCaptcha's test keys](https://docs.hcaptcha.com/#integration-testing-test-keys). Test keys do not provide anti-bot protection and must not be used on a production form.
+
+Keep production monitoring separate from the public form, for example by testing the same setup on staging or using a dedicated protected monitoring form.
 
 ## Spam Protection (Cloudflare Turnstile) {#turnstile}
 
@@ -748,8 +786,6 @@ Creating a two-column form is as simple as setting the width of the individual f
 To add some spacing between our form fields, let's set the "Width" of the first two form fields in our example to 49%. Those fields now take up 98% of the horizontal width. Creating a 2% gap between our columns. Set the bottom "Spacing" value to "2%" to apply the same spacing in all directions.
 
 Lastly, set the "Alignment" to "space-between" to ensure our fields horizontally align with the outer edges of our form.
-
-
 
 ![](imgs/form-element-multi-column-layout-1024x539-f998085944.png)
 

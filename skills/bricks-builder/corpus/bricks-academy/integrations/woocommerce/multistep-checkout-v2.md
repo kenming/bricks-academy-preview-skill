@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/integrations/woocommerce/multiste
 pageType: "article"
 section: "integrations"
 category: "woocommerce"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Checkout v2 can split the WooCommerce checkout form into multiple editable steps while keeping the native WooCommerce checkout form and submission flow in place.
 
@@ -36,7 +36,7 @@ A multistep checkout uses these generated support elements:
 - **Checkout steps navigation**: Displays the step navigation list.
 - **Checkout step nav item**: One navigation item inside the steps navigation.
 - **Checkout step**: Wraps the content for one checkout step.
-- **Checkout billing address**, **Checkout shipping address**, **Payment options**, **Place order**, and other generated checkout support elements.
+- **Checkout account fields**, **Checkout billing address**, **Checkout shipping address**, **Payment options**, **Place order**, and other generated checkout support elements.
 
 Some of these support elements are generated-only or context-specific. If you do not see them in the regular Elements panel, create them through **Insert a structure** instead. After generation, you can select, style, move, and edit them in the Structure panel like other Bricks elements.
 
@@ -48,6 +48,10 @@ Checkout step order follows the order of the **Checkout step** elements in the S
 
 Navigation items mirror the checkout steps by order. If a checkout step is conditional, add the same condition to the matching navigation item so the visible navigation and visible steps stay aligned.
 
+For the Shipping step, use **Checkout : Needs shipping** with a value of **Yes** on both the step and its navigation item. Use **Checkout : Needs shipping address** only on the **Ship to another address** control and shipping-address fields. A cart can still require shipping methods when WooCommerce is set to use the billing address for shipping.
+
+Newly generated complete checkout structures include these conditions. If the layout was generated earlier or customized, review the Shipping step, navigation item, and address-field conditions manually because preset changes do not rewrite existing page content.
+
 Each Checkout step has these controls:
 
 - **Step ID**: Used by navigation, interactions, and direct step jumps.
@@ -57,6 +61,18 @@ Each Checkout step has these controls:
 - **Auto focus first field**: Focuses the first available field when the step becomes active.
 
 Use stable, readable step IDs such as `customer-info`, `shipping`, `order-review`, or `payment` when you plan to target a step with interactions.
+
+## Account Login step visibility
+
+The generated complete multistep structure adds **Checkout : Login step needed** conditions to the Account Login navigation item, the Account Login step, and the Customer info Back button.
+
+- Logged-out customer and **Enable log-in during checkout** enabled: Account Login is the first step, and Customer info includes a Back button.
+- Logged-out customer and **Enable log-in during checkout** disabled: Account Login is not rendered. Customer info becomes the first step and has no Back button.
+- Logged-in customer: Account Login and the Customer info Back button are not rendered.
+
+If you build a custom multistep structure, apply the same **Checkout : Login step needed** condition to all three elements. Keeping the navigation item, step, and Back button under the same condition prevents an empty first step or a Back button with no previous step.
+
+Account creation fields follow the WooCommerce checkout settings separately from the Account Login step. See [Checkout v2 account creation](/builder/elements/woocommerce/checkout-v2/#account-creation-during-checkout).
 
 ## Step buttons and interactions
 
@@ -93,6 +109,8 @@ WooCommerce notices can still link to invalid fields. The checkout step script c
 After generating the multistep layout:
 
 - Test the checkout as a guest and as a logged-in customer.
+- Test with **Enable log-in during checkout** both enabled and disabled.
+- Test optional and required account creation with WooCommerce username and password generation enabled and disabled.
 - Test products that require shipping and products that do not require shipping.
 - Review conditional steps, such as account login and shipping.
 - Confirm the final payment step contains the payment options, terms, and place order button.

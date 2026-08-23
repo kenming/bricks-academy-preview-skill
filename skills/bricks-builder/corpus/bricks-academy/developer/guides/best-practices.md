@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/developer/guides/best-practices.m
 pageType: "article"
 section: "developer"
 category: "guides"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Please keep the points below in mind when working with Bricks:
 

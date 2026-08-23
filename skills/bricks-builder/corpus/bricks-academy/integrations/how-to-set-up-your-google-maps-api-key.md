@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/integrations/how-to-set-up-your-g
 pageType: "article"
 section: "integrations"
 category: "how-to-set-up-your-google-maps-api-key"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Thanks to the `Map` element, adding a Google Map to Bricks is easy. The biggest hurdle is creating the Google Maps API key. This article will show you how to create an API key and how to prevent unauthorized use by setting API and application restrictions.
 

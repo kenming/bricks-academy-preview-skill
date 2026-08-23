@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/styling/scroll-snap.md"
 pageType: "article"
 section: "builder"
 category: "styling"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 With the introduction of scroll snapping in Bricks 1.9.3, enhancing your web pages with sophisticated scrolling effects has never been easier.
 

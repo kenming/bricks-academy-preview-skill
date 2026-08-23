@@ -41,8 +41,8 @@ Academy corpus 與 index 是同步生成物。Development references 則刻意�
 
 ## 目前 Academy 快照
 
-- `764` 篇同步文件
-- `614` 張本地圖片
+- `768` 篇同步文件
+- `631` 張本地圖片
 - `51` 個外部 embed 以連結保留
 
 以上數字會隨官方文件更新而變動。

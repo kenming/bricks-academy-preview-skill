@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/setup/troubleshooting.md"
 pageType: "article"
 section: "builder"
 category: "setup"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 A website built with Bricks depends on more than Bricks itself. WordPress, plugins, custom code, your browser, caching, a CDN, the web server, PHP, and the database can all affect what you see.
 
@@ -247,9 +247,11 @@ Chat assistants such as ChatGPT or Claude can help interpret an error, compare w
 
 An agent such as Codex or Claude Code can go further when it is running in an environment with access to your website files, command line, browser, or hosting account. Using an agent does not automatically give it access to any of those systems. You decide which tools and credentials it can use.
 
-If you use the experimental [Bricks AI abilities and skills](/builder/features/ai-abilities-and-skills/), a connected agent can read Bricks system information, page structure, elements, and revisions.
+If you use the experimental [Bricks AI abilities and skills](/builder/features/ai-abilities-and-skills/), a connected agent can read Bricks system information, page structure, elements, revisions, and other site data exposed by enabled abilities. This can help it compare the affected page with a working page, identify plugin and environment differences, and inspect the state behind a visible error.
 
-Start with read-only access on staging. Bricks access alone does not include PHP logs, server configuration, the database, or file permissions. The agent needs separate hosting or server access for those checks.
+Start with read-only access on staging. If those checks are not enough, the optional [`bricks/execute-php` ability](/builder/features/ai-abilities-and-skills/#optional-enable-php-execution) lets an authorized agent run targeted, one-off PHP in the site's WordPress runtime. It can inspect active plugins, registered hooks, PHP configuration, scheduled events, file paths and permissions, and files or logs that the PHP process can read. It can also reproduce a plugin function with real site data or perform an explicitly approved file or data repair before testing again.
+
+Direct PHP execution is not sandboxed. Enable it only on a backed-up local or staging site, ask the agent to explain a proposed write before running it, and disable it after the investigation. Server configuration and logs outside the PHP process's permissions still require hosting or server access.
 
 ```text
 Help me investigate an issue on this WordPress site built with Bricks.
@@ -258,6 +260,8 @@ What happens: [describe the symptom]
 Expected result: [what should happen]
 Reproduction: [exact steps]
 Already tested: [browser, cache, and isolation results]
+
+Start with read-only Bricks abilities. If a targeted PHP check would narrow the cause, explain the exact code and expected output before running it. Do not change files or site data without my approval.
 ```
 
 Remove passwords, cookies, nonces, license keys, API keys, personal data, and database credentials before sharing errors or configuration.

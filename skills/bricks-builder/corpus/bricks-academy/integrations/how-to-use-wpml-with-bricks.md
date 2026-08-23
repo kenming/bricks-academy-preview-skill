@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/integrations/how-to-use-wpml-with
 pageType: "article"
 section: "integrations"
 category: "how-to-use-wpml-with-bricks"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 WPML is a WordPress plugin known for its role in facilitating the creation of multilingual websites.
 

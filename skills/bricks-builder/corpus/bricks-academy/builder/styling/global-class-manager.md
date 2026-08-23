@@ -6,9 +6,9 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/styling/global-class-mana
 pageType: "article"
 section: "builder"
 category: "styling"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
-The Global Class Manager is the central place to maintain your reusable CSS classes in Bricks. It is different from the class selector on an element: the element panel is for assigning and editing classes while you work on a specific element; the Class Manager is for organizing, importing, exporting, locking, deleting, and reviewing the whole class library.
+The Global Class Manager is the central place to maintain your reusable CSS classes in Bricks. It is different from the class selector on an element: the element panel is for assigning and editing classes while you work on a specific element; the Class Manager is for editing custom CSS, organizing, importing, exporting, locking, deleting, and reviewing the whole class library.
 
 Use the Class Manager when your site has more than a few reusable classes or when you maintain a design system across pages, templates, and imported layouts.
 
@@ -31,6 +31,7 @@ A global class is a site-level record. It can contain:
 - A class ID.
 - A class name.
 - Style settings.
+- Breakpoint-specific custom CSS.
 - Custom selectors and pseudo-state settings.
 - A category.
 
@@ -50,6 +51,7 @@ Use the element class selector when you want to:
 Use the Class Manager when you want to:
 
 - Create or rename classes without selecting a specific element.
+- Edit custom CSS for one selected class.
 - Organize classes into categories.
 - Bulk rename or duplicate classes.
 - Lock or unlock multiple classes.
@@ -71,9 +73,27 @@ You can also select one or more classes and use the editor column to:
 
 If you rename or duplicate a class, Bricks checks for duplicate class names and skips names that would conflict.
 
-When class custom CSS uses the old class root selector, Bricks updates that root selector during a rename or duplicate operation. CSS written outside Bricks-managed class settings is not changed automatically.
-
 ![](imgs/bricks-classes-manager-fb7d49313a.png)
+
+## Edit custom CSS for a class
+
+Starting in Bricks 2.4, you can edit a class's custom CSS directly in the Class Manager. You do not need to find an element that uses the class first.
+
+Select one class to open its **Custom CSS** editor in the editor column. Use `%root%` to target the selected class:
+
+```css
+%root% {
+  color: firebrick;
+}
+```
+
+The breakpoint navigation above the editor lets you add CSS for each responsive breakpoint. An indicator shows which breakpoints contain a value. Changes appear in the canvas preview while you edit, and the indicator on the Class Manager save button shows that the class has unsaved changes.
+
+![](imgs/global-class-manager-custom-css-1f5f0414f1.webp)
+
+Click the Class Manager save button to save the CSS with the class. When global class synchronization is enabled, custom CSS changes use the same conflict checks as other class changes.
+
+Renaming or duplicating the class preserves its custom CSS. If the stored CSS contains the previous class root selector, Bricks updates that selector for the renamed or duplicated class. CSS written outside Bricks-managed class settings is not changed.
 
 ## Categories
 
@@ -112,7 +132,9 @@ Usage filters are useful for cleanup, but review results carefully before deleti
 
 ## Lock classes
 
-Locking protects classes from accidental edits. A locked class can still exist in the class library and can still be assigned where permissions allow, but its styles cannot be edited until it is unlocked.
+Locking protects classes from accidental changes. A locked class can still exist in the class library and can still be assigned where permissions allow, but its styles and custom CSS cannot be edited until it is unlocked.
+
+If a selection contains a locked class, Bricks also blocks rename and delete actions for that selection. Unlock the class before renaming it, moving it to trash, or deleting it permanently.
 
 Use locks for foundational design-system classes such as layout wrappers, button bases, typography classes, or generated utility classes that should not be changed casually.
 

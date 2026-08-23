@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/getting-started/blog-post-templat
 pageType: "article"
 section: "getting-started"
 category: "blog-post-template"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 https://youtu.be/d0i85-tgjAQ
 

@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/integrations/woocommerce/create-c
 pageType: "article"
 section: "integrations"
 category: "woocommerce"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Use the Dynamic fragment element when you need cart-dependent content outside the main Cart page, such as a custom mini cart in a header Offcanvas, dropdown, or popup.
 
@@ -47,7 +47,7 @@ Inside the Dynamic fragment, Bricks creates:
 
 - A **Details wrapper** that contains the mini cart content.
 - A **Cart loop** using the **Cart contents** query type.
-- A cart row inside the loop with product image, product name, product price, product excerpt, quantity control, remove icon, and line subtotal.
+- A cart row inside the loop with product image, product title, product price, product excerpt, item data, quantity control, remove icon, and line subtotal.
 - An empty-cart message from the Cart contents query loop.
 - A separate block after the Cart loop for the subtotal and action buttons.
 - A condition on that subtotal/actions block so it only shows when the Cart loop has more than `0` results.
@@ -61,14 +61,17 @@ The generated cart row uses WooCommerce cart tags inside the **Cart contents** l
 
 Common row tags:
 
-| Tag                             | Use                            |
-| ------------------------------- | ------------------------------ |
-| `{featured_image}`              | Product image.                 |
-| `{woo_cart_product_name:plain}` | Product name as plain text.    |
-| `{woo_cart_quantity}`           | Quantity input.                |
-| `{woo_cart_quantity:value}`     | Quantity number as text.       |
-| `{woo_cart_subtotal}`           | Line subtotal.                 |
-| `{woo_cart_remove_link:url}`    | Remove URL for a link or icon. |
+| Tag or element | Use |
+| --- | --- |
+| `{featured_image}` | Product image. |
+| `{woo_cart_product_title:plain}` | Product title as plain text, without variation metadata. |
+| **Cart item data** | Variation attributes and compatible extension-provided item data. |
+| `{woo_cart_quantity}` | Quantity input. |
+| `{woo_cart_quantity:value}` | Quantity number as text. |
+| `{woo_cart_subtotal}` | Line subtotal. |
+| `{woo_cart_remove_link:url}` | Remove URL for a link or icon. |
+
+For a custom row, use `{woo_cart_item_price}` when you need the formatted unit price with sale-price markup. `{woo_cart_item_save}` returns the quantity-aware product savings and can be used in a condition through `{woo_cart_item_save:value}`.
 
 The subtotal and buttons are outside the Cart contents loop, but still inside the Dynamic fragment. The generated structure uses:
 

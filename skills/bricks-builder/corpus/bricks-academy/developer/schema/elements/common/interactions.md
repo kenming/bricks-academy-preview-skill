@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/developer/schema/elements/common/
 pageType: "article"
 section: "developer"
 category: "schema"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 import SchemaJson from '../../../../../../components/SchemaJson.astro'
 
@@ -45,7 +45,8 @@ These properties apply depending on the chosen action:
 | `scrollToDelay` | string | `scrollTo` (delay before scrolling) |
 | `scrollToOffset` | string | `scrollTo` (scroll offset in pixels) |
 | `scrollOffset` | string | `scroll` trigger (scroll position threshold) |
-| `rootMargin` | string | `enterView`/`leaveView` (IntersectionObserver root margin) |
+| `rootMargin` | string | `enterView` (IntersectionObserver root margin) |
+| `visibilityThreshold` | number | `enterView`/`leaveView` (visible percentage from `0` to `100`) |
 | `templateId` | string | Template ID reference |
 | `formId` | string | Form element ID |
 | `ajaxQueryId` | string | AJAX query element ID |
@@ -82,6 +83,7 @@ These properties apply depending on the chosen action:
       "action": "show",
       "target": "self",
       "rootMargin": "0px 0px -100px 0px",
+      "visibilityThreshold": 50,
       "runOnce": true
     }
   ]

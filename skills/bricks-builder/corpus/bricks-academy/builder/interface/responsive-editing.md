@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/interface/responsive-edit
 pageType: "article"
 section: "builder"
 category: "interface"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 What looks great on a large desktop screen usually needs some refinement for smaller devices. This typically involves applying smaller font sizes, margins, paddings, column width/stacking, or hiding certain elements on smaller devices.
 
@@ -22,6 +22,16 @@ Bricks provides the following four breakpoints out-of-the-box:
 Styles set on the base breakpoint are inherited by all other breakpoints.
 
 Once you've finished styling a page on the base breakpoint (desktop), make sure to view & adjust the styling on the other breakpoints too.
+
+## Background video on larger breakpoints only
+
+The Background control includes **Start play at** for background videos. Select the smallest breakpoint where the video should run. Below that width, Bricks stops before assigning the video source, so the desktop video is not downloaded by the native background-video script.
+
+To show an image on smaller screens:
+
+1. Set the background video on the element.
+2. Set **Start play at** to the smallest breakpoint that should play it.
+3. Set a background image for the smaller breakpoint.
 
 To view & edit the styles for a specific breakpoint simply click on its breakpoint icon located in the center of the builder toolbar. Or via the [keyboard shortcut](/builder/interface/keyboard-shortcuts/) "CMD/CTRL + B".
 

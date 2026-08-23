@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/developer/dynamic-data/create-you
 pageType: "article"
 section: "developer"
 category: "dynamic-data"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 This article is intended for developers who wish to create a custom dynamic data tag within the builder.
 

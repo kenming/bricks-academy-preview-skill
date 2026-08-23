@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/elements/woocommerce/chec
 pageType: "article"
 section: "builder"
 category: "elements"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Displays the WooCommerce checkout page as editable Checkout, Login required, Pay, Thank you, and Order receipt states.
 
@@ -46,6 +46,8 @@ The Checkout state can generate these structures:
 
 When **Complete checkout** is selected, **Generate as multistep** creates a ready-made multistep checkout layout.
 
+The **Billing fields** and **Complete checkout** structures also generate the account credential fields currently required by WooCommerce. Bricks places these fields inside a **Checkout account fields** wrapper so WooCommerce's account-creation settings control their frontend visibility.
+
 The Login required, Pay, Thank you, and Order receipt states each provide a complete block for that state.
 
 :::note
@@ -53,6 +55,30 @@ Some Checkout v2 support elements, including generated form fields, checkout ste
 :::
 
 ![](imgs/checkout-v2-structure-example-578324067e.png)
+
+## Account creation during checkout
+
+Checkout v2 follows the guest checkout and account creation settings under **WooCommerce > Settings > Accounts & Privacy**.
+
+| Guest checkout | Account creation during checkout | Checkout behavior |
+| --- | --- | --- |
+| Enabled | Disabled | Guests can check out without account fields. |
+| Enabled | Enabled | Guests can select **Create an account?** to reveal the required account fields. |
+| Disabled | Enabled | Account creation is required. The account fields remain visible without the optional **Create an account?** checkbox. |
+| Disabled | Disabled | Logged-out customers see the Checkout v2 **Login required** state. |
+
+WooCommerce decides which credential fields are required:
+
+| Generate account login | Send password setup link | Credential fields |
+| --- | --- | --- |
+| Enabled | Enabled | None |
+| Disabled | Enabled | Username |
+| Enabled | Disabled | Password |
+| Disabled | Disabled | Username and password |
+
+Generated username and password fields are required. Bricks reads these fields from WooCommerce's current checkout field registry, including fields added by third-party plugins, instead of assuming a fixed set.
+
+The **Allow customers to create an account on the My Account page** setting applies to Account Page v2 registration and does not change account creation during Checkout v2.
 
 ## Multistep checkout
 
@@ -80,6 +106,12 @@ Checkout v2 includes a **Sync checkout fields** control group with actions to co
 Use these after changing WooCommerce checkout fields or installing plugins that add checkout fields.
 
 Field sync can report valid, missing, invalid, and duplicate generated fields. It can generate missing fields, remove generated fields that no longer exist in WooCommerce, remove duplicate generated fields, and update generated field labels and placeholders from the current WooCommerce field data.
+
+The audit includes WooCommerce's `account` field section. Missing account fields are inserted into the **Checkout account fields** wrapper, while billing, shipping, and additional fields remain in their corresponding checkout sections.
+
+Enabling **Generate account login** or **Send password setup link** does not remove the corresponding saved username or password element from an existing Checkout v2 structure. Until you run field sync, an element that WooCommerce no longer registers can still render as an optional field, but WooCommerce does not process its value because it generates that credential. Run **Check checkout fields**, then **Remove invalid fields**.
+
+Checkout structures created with a Bricks 2.4 beta may contain a standalone **Create account** checkbox or may not contain the account wrapper. Regenerate the checkout structure or use the field sync actions after updating. Bricks creates the wrapper when missing account fields are generated and removes an obsolete standalone checkbox after the replacement wrapper and checkbox exist.
 
 ![](imgs/checkout-v2-sync-checkout-fields-d6121a6743.png)
 

@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/dynamic-content/query-loo
 pageType: "article"
 section: "builder"
 category: "dynamic-content"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 https://www.youtube.com/watch?v=LxrLROitgn8
 
@@ -15,6 +15,14 @@ The **Query Loop** builder is available for [layout elements](/builder/styling/l
 The Map element has its own query loop controls for dynamic addresses. Nestable elements such as Accordion (Nestable), Tabs (Nestable), and Slider (Nestable) use their own child repeaters, so they do not expose the same full Query Loop control as layout elements.
 
 It lets you query content and render each result through the same design. Everything inside the loop can use dynamic data from the current result.
+
+### Dynamic data in nested loops
+
+Dynamic data uses the current loop result. In a nested loop, the inner result becomes the current result for elements inside that loop.
+
+For example, `{term_name}` can return the current term in an outer Terms loop. Inside a nested Posts or Media loop, the current result is a post or attachment, so the same term tag does not read the outer term.
+
+Bricks does not provide parent-loop syntax for output tags. Keep values that belong to the parent result outside the inner loop when possible. Inner query controls can use dynamic data while Bricks is building that nested query, but output inside the inner loop still resolves against the inner result. Accessing the parent result from inner-loop markup requires custom PHP or a custom dynamic data tag.
 
 You can query post types, taxonomy terms, users, API responses, and arrays. Some typical use cases are:
 
@@ -131,6 +139,23 @@ Bricks signs Query editor code. If the signature is missing or invalid, Bricks w
 **Tax Query Relation**: Define if the taxonomy queries should be inclusive (OR) or exclusive (AND).
 
 **Meta Query**: Add one or multiple meta queries to filter the posts based on the custom fields.
+
+#### ACF date fields in a meta query
+
+A meta query compares the value stored in the WordPress database. It does not compare the formatted value shown by an ACF field or a rendered dynamic data tag.
+
+For an ACF Date Picker field, use the field name as the meta key, without braces or an `acf_` prefix. ACF stores this field as `Ymd`, regardless of its return or display format. To return upcoming posts, for example, use:
+
+- **Meta key:** `event_date`
+- **Meta value:** `{current_wp_date:Ymd}`
+- **Compare:** `>=`
+- **Type:** `NUMERIC`
+
+Use `{current_date:Ymd}` instead when the comparison should use UTC rather than the WordPress site timezone.
+
+ACF Date Time Picker values are stored as `Y-m-d H:i:s`. Use a value such as `{current_wp_date:Y-m-d H:i:s}` with **Type** set to `DATETIME`.
+
+Fields inside an ACF Group normally use the stored `parent_child` meta key. You can keep any return or display format needed on the frontend because it does not change the raw value used by the query.
 
 **Relation**: Define if the meta queries should be inclusive (OR) or exclusive (AND).
 

@@ -6,9 +6,11 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/elements/single/post-navi
 pageType: "article"
 section: "builder"
 category: "elements"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Displays navigation links to previous and next posts.
+
+The element uses WordPress adjacent-post navigation. **Previous** points to the previous post according to WordPress's post-date order, and **Next** points to the next one. This can look reversed when visitors arrive from a posts list sorted by date in descending order.
 
 ## Settings
 
@@ -35,6 +37,8 @@ Displays navigation links to previous and next posts.
 - **Prev arrow** (icon) - Icon for previous post navigation.
 - **Next arrow** (icon) - Icon for next post navigation.
 - **Typography** (typography) - Typography for arrow icons.
+
+You can change the labels and arrows to match the wording used by your design. The element does not include a setting that reverses the underlying adjacent-post lookup. Changing that order requires custom PHP through WordPress's adjacent-post filters, or a custom navigation implementation.
 
 ### Image
 - **Show image** (checkbox) - Display post featured images. Default: true.

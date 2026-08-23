@@ -6,7 +6,7 @@ markdownUrl: "https://academy.bricksbuilder.io/builder/dynamic-content/dynamic-d
 pageType: "article"
 section: "builder"
 category: "dynamic-content"
-lastmod: "2026-08-04T12:13:33.000Z"
+lastmod: "2026-08-20T13:12:40.000Z"
 ---
 Use dynamic data to render all sorts of data from your WordPress database with Bricks.
 
@@ -40,7 +40,7 @@ You can render much more than just standard dynamic WordPress data. Bricks suppo
 
 - [Advanced Custom Fields](#acf)
 - [Meta box](#metabox)
-- [Crocoblock (JetEngine)](#jetengine) (Not support WooCommerce Product Data / Variation Meta Box)
+- [Crocoblock (JetEngine)](#jetengine)
 - Pods
 - CMB2
 - Toolset
@@ -88,6 +88,16 @@ Bricks is compatible with Crocoblock JetEngine Post Types, Meta Boxes (Custom fi
 [Custom Content Types](https://crocoblock.com/knowledge-base/jetengine/how-to-showcase-cct-meta-fields-using-dynamic-tags-in-bricks/) (CCT) has been supported since April 2024 by the JetEngine plugin, not Bricks itself. For any CCT questions, please get in touch with the JetEngine support directly.
 
 Bricks integration with the JetEngine plugin makes the custom fields available as dynamic data inside the Bricks builder.
+
+This includes fields from JetEngine meta boxes where **Source** is set to **WooCommerce Product Data** or **WooCommerce Product Variation**.
+
+Bricks uses a separate tag prefix for each source:
+
+- WooCommerce Product Data: `{je_woo_product_<field-name>}`
+- WooCommerce Product Variation: `{je_woo_product_variation_<field-name>}`
+- Post fields assigned to the Product post type: `{je_product_<field-name>}`
+
+For example, a Product Data field named `delivery_note` uses `{je_woo_product_delivery_note}`. A regular Product post field with the same name uses `{je_product_delivery_note}`. The separate prefixes prevent the two fields from registering the same dynamic data tag.
 
 Bricks also integrates with the JetEngine Relations and Repeaters to feed the Bricks builder query loop.
 
