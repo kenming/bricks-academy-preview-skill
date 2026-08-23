@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## v1.0.2 - 2026-08-23
+
 ### Added
 
 - Added Academy documentation for the File element, Media Browser, Remote
